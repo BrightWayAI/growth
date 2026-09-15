@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.3.4] — claude plugin eval suite (2026-09-15)
+
+Nucleus Operating Model Refactor Phase 4 step 4.2.
+
+### Added
+- `evals/relationships-natural-language/` — eval case testing the relationships skill's natural-language trigger, with an `llm` grader
+  checking the response acts on the natural-language request directly rather
+  than asking the user to type the explicit command. Run with
+  `claude plugin eval . --case relationships-natural-language`; `--ablation with-without`
+  (the default when the plugin resolves) reports the delta between installed
+  and not — a delta near zero means the skill's description isn't matching
+  natural phrasing and needs work.
+- `.gitignore` — excludes `evals/results/` (per-run output, not checked in).
+
 ## [0.3.3] — Skill auto-invocation audit (2026-09-15)
 
 Nucleus Operating Model Refactor Phase 3 step 3.7. Ritual and side-effecting
