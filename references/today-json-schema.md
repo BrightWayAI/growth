@@ -2,7 +2,7 @@
 
 The structured artifact produced by `/relationships` after each daily brief run. Written to `<config-root>/relationships/today.json` (and a date-stamped copy at `<config-root>/relationships/<YYYY-MM-DD>.json`).
 
-This is the **stable contract** that downstream surfaces depend on — a future Next.js web app, the Operator desktop app, daily-brief tight-coupling, and any third-party reader. Treat it like a public API.
+This is the **stable contract** that downstream surfaces depend on — a future Next.js web app, the Operator desktop app, briefing tight-coupling, and any third-party reader. Treat it like a public API.
 
 ## Versioning
 

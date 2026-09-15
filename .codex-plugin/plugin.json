@@ -1,7 +1,7 @@
 {
-  "name": "relationships",
-  "version": "0.3.6",
-  "description": "Build a daily relationship cockpit, research contacts, act on buying signals and referral opportunities, rebalance a network, and create context-aware touchpoint drafts.",
+  "name": "growth",
+  "version": "0.4.0",
+  "description": "Growth Engine. Build a daily relationship cockpit, research contacts, act on buying signals and referral opportunities, rebalance a network, and create context-aware touchpoint drafts.",
   "author": {
     "name": "BrightWay AI",
     "url": "https://brightwayai.com"
@@ -16,7 +16,7 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Relationships",
+    "displayName": "Growth Engine",
     "shortDescription": "Prioritize relationship actions and draft useful touchpoints",
     "longDescription": "Build a daily relationship cockpit, research contacts, act on buying signals and referral opportunities, rebalance a network, and create context-aware touchpoint drafts.",
     "developerName": "BrightWay AI",

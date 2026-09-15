@@ -4,7 +4,7 @@ description: Walk your existing cortex person pages and propose tier + intent + 
 
 # /network-rebalance
 
-The migration + maintenance command that bridges cortex person pages and the `relationships` plugin. Without it, every person on every page defaults to `tier: operational`, `buckets: [relationship]`, `icp_fit: none` — which means the daily brief has nothing meaningful to rank.
+The migration + maintenance command that bridges cortex person pages and the `growth` plugin. Without it, every person on every page defaults to `tier: operational`, `buckets: [relationship]`, `icp_fit: none` — which means the daily brief has nothing meaningful to rank.
 
 Designed to be **run twice**:
 1. **Once at install** — bulk-propose frontmatter for your existing network.
@@ -14,11 +14,11 @@ Designed to be **run twice**:
 
 ## Step 0 — Preflight
 
-Read `<config-root>/plugins/relationships.user-context.md`. If missing → route to `/setup-relationships` and stop.
+Read `<config-root>/plugins/growth.user-context.md`. If missing → route to `/setup-relationships` and stop.
 
 Read `<config-root>/memory/me/identity.md` for the user's name (used in confirmation prose).
 
-Verify cortex is installed: `<config-root>/memory/` directory must exist. If missing → "This command requires cortex (claude-cortex) installed for person-page data. Install cortex + run /setup-identity first."
+Verify cortex is installed: `<config-root>/memory/` directory must exist. If missing → "This command requires cortex installed for person-page data. Install cortex + run /setup-identity first."
 
 Read `<config-root>/memory/index.md` if available — gives you the catalog of person pages without walking every file.
 
@@ -35,7 +35,7 @@ Extract from user-context:
 
 ## Step 0.5 — Retired-plugin user-context migration (v0.2.3+)
 
-Detect legacy plugin user-context files from the retired `weekly-outreach` + `bizdev-outreach` plugins. If present, offer to migrate relevant fields into the active `relationships.user-context.md` before walking person pages.
+Detect legacy plugin user-context files from the retired `weekly-outreach` + `bizdev-outreach` plugins. If present, offer to migrate relevant fields into the active `growth.user-context.md` before walking person pages.
 
 ```
 legacy_files = [
@@ -50,7 +50,7 @@ If any legacy file exists AND was not yet migrated (no `<config-root>/plugins/.r
 
      These plugins were retired in favor of `relationships`. Their user-context files
      can be migrated — relevant fields (ICP, voice rules, banned phrases, CRM
-     mappings, cadence definitions) get copied into your relationships.user-context.md
+     mappings, cadence definitions) get copied into your growth.user-context.md
      where they're still consulted. Original files preserved at
      <config-root>/plugins/archive/<original-name>.<today>.md (renamed, not deleted).
 
@@ -60,7 +60,7 @@ If any legacy file exists AND was not yet migrated (no `<config-root>/plugins/.r
   On y:
     For each legacy file:
       Parse known sections (ICP, Voice, CRM, Cadence, Banned phrases, Value-adds, etc.)
-      For each field, compare against current relationships.user-context.md:
+      For each field, compare against current growth.user-context.md:
         - If relationships.user-context lacks the field → copy it over (with provenance: <!-- migrated-from: <legacy-file> @ <today> -->).
         - If relationships.user-context already has the field with the SAME value → skip silently.
         - If relationships.user-context has a DIFFERENT value → surface a per-field reconciliation prompt: "[Field name] differs:

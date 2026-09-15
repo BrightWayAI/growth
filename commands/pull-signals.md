@@ -11,7 +11,7 @@ You are pulling fresh signals from Apollo, filtering against the user's ICP, and
 ## Step 0: Preflight
 
 Read:
-- `<config-root>/plugins/relationships.user-context.md`
+- `<config-root>/plugins/growth.user-context.md`
 - `references/seven-signals.md`
 - `<config-root>/relationships/pipeline.md` (so we don't re-add duplicates)
 

@@ -135,7 +135,7 @@ This is the maintenance ritual that keeps the framework honest.
 
 ## What this is NOT
 
-- **A CRM.** No deal stages, no pipeline forecasting, no sales reporting. That's `core-ops`, `weekly-outreach` (being retired), and your actual CRM.
+- **A CRM.** No deal stages, no pipeline forecasting, no sales reporting. That's `ops`, `weekly-outreach` (being retired), and your actual CRM.
 - **An autopilot.** Drafts only. The user always decides whether to send.
 - **A guilt machine.** It will not tell you "you've been a bad friend." It will tell you "if you have 5 minutes, here's the highest-leverage thing."
 - **A scoring black box.** Scoring math is documented in `scoring.md`. Weights are user-configurable.

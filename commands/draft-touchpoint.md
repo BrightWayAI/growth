@@ -15,7 +15,7 @@ Use cases:
 
 ## Step 0 — Preflight
 
-Read `<config-root>/plugins/relationships.user-context.md`. If missing → route to `/setup-relationships` and stop.
+Read `<config-root>/plugins/growth.user-context.md`. If missing → route to `/setup-relationships` and stop.
 
 Read `<config-root>/memory/me/identity.md` and `<config-root>/memory/me/voice.md` (or named voice files if user has multiple).
 
@@ -80,14 +80,14 @@ If only one signal is fresh and obvious (e.g., a clear WAITING:you item with a d
 
 ### Referral-ask sub-shape (option e, absorbed from referral-engine's `/referral-ask`, 2026-09-15)
 
-If the contact is tagged as a connector (per the connector taxonomy in `relationships.user-context.md`), option (e) routes to `references/templates/referral-ask/README.md` instead of the standard channel/template flow. Pick the ask shape based on context, same logic `/referral-ask` used:
+If the contact is tagged as a connector (per the connector taxonomy in `growth.user-context.md`), option (e) routes to `references/templates/referral-ask/README.md` instead of the standard channel/template flow. Pick the ask shape based on context, same logic `/referral-ask` used:
 
 - **Post-positive-touch** — they just did something positive (replied warmly, sent a glowing note, mentioned you publicly, made an intro).
 - **Post-project** — a project just closed (theirs or another client they referred).
 - **Re-warm + ask** — they've gone quiet (60+ days) but were warm before; lead with value, ask as a soft afterthought.
 - **Trigger-based** — fiscal year, conference, or budget cycle approaching.
 
-**Cooling check (hard gate, not a warning):** if `relationships.user-context.md`'s ask-cadence cap (default 180 days) hasn't cleared since this connector was last asked, refuse to draft a referral ask and say so: "Cooling — last asked [date]. Want a value-share touch instead?" This is stricter than the general cooling-period *warning* in Step 6 below — referral asks inside the cooling window don't get drafted at all, they get redirected to a value-share draft.
+**Cooling check (hard gate, not a warning):** if `growth.user-context.md`'s ask-cadence cap (default 180 days) hasn't cleared since this connector was last asked, refuse to draft a referral ask and say so: "Cooling — last asked [date]. Want a value-share touch instead?" This is stricter than the general cooling-period *warning* in Step 6 below — referral asks inside the cooling window don't get drafted at all, they get redirected to a value-share draft.
 
 ---
 

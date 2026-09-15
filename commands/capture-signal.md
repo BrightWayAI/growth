@@ -12,7 +12,7 @@ You are capturing a single LinkedIn buying signal the user just spotted. Be fast
 
 Read these files. If `user-context.md` is missing or has placeholder content, stop and tell the user to run `/setup-relationships` first.
 
-- `<config-root>/plugins/relationships.user-context.md`
+- `<config-root>/plugins/growth.user-context.md`
 - `references/seven-signals.md`
 - `<config-root>/relationships/pipeline.md`
 

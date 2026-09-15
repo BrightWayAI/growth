@@ -1,4 +1,4 @@
-# relationships
+# growth (Growth Engine)
 
 **Daily relationship cockpit for solo operators and small teams.** One command — `/relationships` — gives you a prioritized brief of who to reach out to today, across three buckets:
 
@@ -12,7 +12,7 @@ Each bucket gives you **3 options**. Each option ships with a **recommended chan
 
 ## What you get
 
-- `/setup-relationships` — short interview that captures your ICP, tier definitions, voices (you can have more than one), time-budget defaults, and which integrations you have running. Writes to `<config-root>/plugins/relationships.user-context.md`.
+- `/setup-relationships` — short interview that captures your ICP, tier definitions, voices (you can have more than one), time-budget defaults, and which integrations you have running. Writes to `<config-root>/plugins/growth.user-context.md`.
 - `/relationships` — the daily brief. Reads your cortex person pages, identity, voice, CRM, calendar, and inbox; ranks; drafts; presents.
 - `references/templates/` — bundled defaults across **comment / dm / email / text / call / conference** categories. Variable-driven (`{{person.name}}`, `{{trigger.context}}`, `{{user.business}}`). Editable. Add your own.
 - `references/person-page-extensions.md` — additive YAML fields the plugin recognizes on cortex person pages (`tier`, `buckets`, `icp_fit`, `generosity_ledger`, `next_touch_target`). Untagged people fall back to sensible defaults.
@@ -38,8 +38,8 @@ Signal sourcing (Apollo/ICP/7-signal taxonomy), the `relationships-director` dee
 Works standalone, but smarter with:
 
 - **cortex** — person pages, voice, identity, hot cache, workstream nodes
-- **core-ops** — `pipeline-analyst` for new-business ranking
-- **daily-brief** — pairs with `/brief` as the morning surface
+- **ops** — `pipeline-analyst` for new-business ranking
+- **briefing** — pairs with `/brief` as the morning surface
 
 If a companion is missing, the plugin degrades gracefully — no required dependency beyond cortex foundation files.
 

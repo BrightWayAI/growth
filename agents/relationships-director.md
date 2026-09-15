@@ -16,7 +16,7 @@ You are the relationships-domain research and ranking agent. The parent skill in
 
 You inherit the parent session's tools. Expect these to be available; if a connector is missing, note that in Confidence and continue with what you have.
 
-- **Read** — `<config-root>/plugins/relationships.user-context.md`, cortex person pages (`<config-root>/memory/person/<slug>.md`), `<config-root>/memory/hot.md`, `<config-root>/memory/DASHBOARD.md`, templates library.
+- **Read** — `<config-root>/plugins/growth.user-context.md`, cortex person pages (`<config-root>/memory/person/<slug>.md`), `<config-root>/memory/hot.md`, `<config-root>/memory/DASHBOARD.md`, templates library.
 - **CRM** (HubSpot / Salesforce / Pipedrive / Attio) — contacts, companies, deals, properties, owners.
 - **Gmail / Outlook** — thread search and content.
 - **Google Calendar** — past/upcoming events.
@@ -33,7 +33,7 @@ Score and rank candidates for one bucket of the daily relationships brief (new_b
 ### Inputs
 
 - **`bucket`** (required) — one of `new_biz` / `relationship` / `network`.
-- **`user-context-path`** (required) — path to `<config-root>/plugins/relationships.user-context.md`.
+- **`user-context-path`** (required) — path to `<config-root>/plugins/growth.user-context.md`.
 - **`candidate-pool`** (required) — list of candidates. Each item has at least `{ slug }` (cortex person slug) or `{ name, company }` (net-new prospects without a cortex page yet). Optional: `{ source: cortex | crm | apollo | manual }`.
 - **`top-n`** (optional, default 10).
 - **`time-budget-min`** (optional) — parent is in time-budget mode; include per-candidate time-estimate for the parent to re-rank.
@@ -53,7 +53,7 @@ Cheapest sources first.
    - **icp_factor:** frontmatter `relationships.icp_fit` if present; else infer from user-context ICP vs. candidate title + company. `primary` → 1.0, `secondary` → 0.6, no match → 0.1.
    - **reciprocity_factor:** open WAITING:you tags (high weight) + sum of last 5 generosity-ledger entries (`gave` +1, `received` -1).
    - **goal_alignment_factor:** cortex page's Linked entities vs. user-context current quarter focus. Explicit link → 1.0. Inferred (ICP + role + workstream overlap) → 0.5. Else → 0.0.
-   - **cooling_penalty:** `Last meaningful contact` inside the tier's minimum-gap window (inner 5d, strategic 10d, operational 30d — overrideable) → 1.0. do-not-engage tag in CRM/cortex → 1.0. Active-deal cooling via native referral-cooling rules in relationships.user-context.md.
+   - **cooling_penalty:** `Last meaningful contact` inside the tier's minimum-gap window (inner 5d, strategic 10d, operational 30d — overrideable) → 1.0. do-not-engage tag in CRM/cortex → 1.0. Active-deal cooling via native referral-cooling rules in growth.user-context.md.
 
 4. **Compute scores** per `references/scoring.md`. Defaults: `w_decay 0.30`, `w_trigger 0.25`, `w_icp 0.20`, `w_reciprocity 0.15`, `w_goal 0.10`, `w_penalty 0.40`. Honor per-bucket overrides from user-context.
 

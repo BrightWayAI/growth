@@ -11,7 +11,7 @@ You are drafting the note that goes inside a LinkedIn connection request. This i
 ## Step 0: Preflight
 
 Read:
-- `<config-root>/plugins/relationships.user-context.md`
+- `<config-root>/plugins/growth.user-context.md`
 - `references/signal-voice-rules.md`
 - `<config-root>/relationships/pipeline.md`
 

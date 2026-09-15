@@ -2,7 +2,7 @@
 
 ## What this plugin does with your data
 
-`relationships` produces a daily prioritized brief for new business, relationship building, and network expansion. It reads relationship data from multiple sources, ranks it, and drafts ready-to-send messages. **Drafts only — never sends.**
+`growth` produces a daily prioritized brief for new business, relationship building, and network expansion. It reads relationship data from multiple sources, ranks it, and drafts ready-to-send messages. **Drafts only — never sends.**
 
 **Reads:**
 - **Cortex memory** (if installed) — person pages (`<config-root>/memory/person/*.md`), workstream nodes, hot cache, identity, voice. Read-only.
@@ -10,12 +10,12 @@
 - **Email** (Gmail / Outlook) — recent threads for context on a contact. Read-only.
 - **Calendar** (Google / Outlook) — upcoming external meetings to weight prioritization. Read-only.
 - **Apollo** (if connected) — net-new prospects matching your ICP. Read-only.
-- **Plugin user-context** — `<config-root>/plugins/relationships.user-context.md` (your ICP, tiers, voice rules, integrations).
+- **Plugin user-context** — `<config-root>/plugins/growth.user-context.md` (your ICP, tiers, voice rules, integrations).
 - **Templates** — `references/templates/**/*.md` (bundled defaults + your custom additions).
 - **Shared foundation files** — `<config-root>/memory/me/identity.md`, `<config-root>/memory/me/voice.md` (read-only).
 
 **Writes:**
-- **Plugin user-context** — `<config-root>/plugins/relationships.user-context.md` (after `/setup-relationships`).
+- **Plugin user-context** — `<config-root>/plugins/growth.user-context.md` (after `/setup-relationships`).
 - **Daily brief output** — `<config-root>/relationships/today.md` and `<config-root>/relationships/today.json` (structured artifact for downstream consumers like a future web UI).
 - **Cortex person pages** (if installed) — additively appends to the **## Recent interactions** log after you confirm an action was taken. Never overwrites Identity or Notes sections.
 - **Drafts** — surfaced inline in conversation, ready to copy. Not auto-sent.
@@ -30,7 +30,7 @@
 ## Where data lives
 
 - Plugin reference files inside the installed plugin directory.
-- Plugin runtime state at `<config-root>/relationships/` and `<config-root>/plugins/relationships.user-context.md`.
+- Plugin runtime state at `<config-root>/relationships/` and `<config-root>/plugins/growth.user-context.md`.
 - Drafts inline in conversation.
 - Person-page interaction logs in cortex memory (if installed).
 

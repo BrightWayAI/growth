@@ -26,7 +26,7 @@ relationships:
 
 ### `tier` (required for ranking; default `operational`)
 
-Drives cadence. Tier targets are configurable per user in `relationships.user-context.md`. Default targets:
+Drives cadence. Tier targets are configurable per user in `growth.user-context.md`. Default targets:
 
 | Tier | Default cadence |
 |---|---|

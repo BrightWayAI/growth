@@ -23,7 +23,7 @@ Not for:
 
 ## Step 0 — Preflight
 
-Read `<config-root>/plugins/relationships.user-context.md`. If missing → route to `/setup-relationships` and stop.
+Read `<config-root>/plugins/growth.user-context.md`. If missing → route to `/setup-relationships` and stop.
 
 ---
 
@@ -75,7 +75,7 @@ If the first argument matches `SIG-[id]` (rather than a person slug), skip Steps
 
 ## Step 1B — Signal-pipeline actions (absorbed from lead-log, 2026-09-15)
 
-Only reached via the `B.1` invocation form above. Read `<config-root>/plugins/relationships.user-context.md` (for CRM wiring + auto-log preference), `<config-root>/relationships/pipeline.md`, and `<config-root>/relationships/sent-log.md`.
+Only reached via the `B.1` invocation form above. Read `<config-root>/plugins/growth.user-context.md` (for CRM wiring + auto-log preference), `<config-root>/relationships/pipeline.md`, and `<config-root>/relationships/sent-log.md`.
 
 If the SIG-ID doesn't exist in the pipeline, say so and stop. If no SIG-ID is given, list `sent` and `replied` signals from the pipeline and ask which one.
 
@@ -99,11 +99,11 @@ If the SIG-ID doesn't exist in the pipeline, say so and stop. If no SIG-ID is gi
 3. Update the SIG entry in `pipeline.md`:
    - Status: `drafted` → `sent`
    - Cadence section: mark Touch [N] as `sent [date]`
-   - Update next-touch target date based on cadence interval from `relationships.user-context.md`
+   - Update next-touch target date based on cadence interval from `growth.user-context.md`
 4. If CRM is connected and auto-log = yes (or user confirms when set to "ask each time"):
    - Find or create the contact in the CRM (use the email from the pipeline if known; otherwise create a contact with name + company + LinkedIn URL).
    - Log a Note or Engagement on the contact: subject "Intent outbound — Touch [N] — [signal type]", body = the verbatim message.
-   - If contact is new: also set the lifecycle stage / pipeline stage from `relationships.user-context.md`.
+   - If contact is new: also set the lifecycle stage / pipeline stage from `growth.user-context.md`.
 5. Confirm:
 
 ```

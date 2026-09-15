@@ -1,12 +1,12 @@
 ---
-description: Configure the relationships plugin. Auto-imports identity, voice, CRM, and banned phrases from peer plugin configs when they exist. ICP/Apollo/signal preferences and referral-connector/cooling rules are captured natively (absorbed from the retired lead-engine and referral-engine plugins, 2026-09-15) rather than imported. For full-stack Nucleus users this collapses to a handful of confirmations plus the native questions; standalone installs run the full interview. Writes results to <config-root>/plugins/relationships.user-context.md. Re-run anytime to update.
+description: Configure the relationships plugin. Auto-imports identity, voice, CRM, and banned phrases from peer plugin configs when they exist. ICP/Apollo/signal preferences and referral-connector/cooling rules are captured natively (absorbed from the retired lead-engine and referral-engine plugins, 2026-09-15) rather than imported. For full-stack Nucleus users this collapses to a handful of confirmations plus the native questions; standalone installs run the full interview. Writes results to <config-root>/plugins/growth.user-context.md. Re-run anytime to update.
 ---
 
 # /setup-relationships
 
 Configure the plugin. The interview length depends on what's already in your `<config-root>/`:
 
-- **Full Nucleus stack** (cortex + core-ops installed): ~2–3 minutes. Identity/voice/CRM pre-filled from peers; ICP, Apollo, and referral-cooling questions are native to this plugin (absorbed from lead-engine and referral-engine, which retired into this plugin 2026-09-15).
+- **Full Nucleus stack** (cortex + ops installed): ~2–3 minutes. Identity/voice/CRM pre-filled from peers; ICP, Apollo, and referral-cooling questions are native to this plugin (absorbed from lead-engine and referral-engine, which retired into this plugin 2026-09-15).
 - **Standalone install**: ~10–12 minutes. Full interview, including the native ICP/Apollo/referral questions.
 
 Idempotent — re-running updates rather than restarts.
@@ -36,13 +36,13 @@ Then:
 
 ### C — Note resolved root
 
-For the rest of this document, **`<config-root>`** refers to the resolved path. This plugin's config file lives at **`<config-root>/plugins/relationships.user-context.md`**.
+For the rest of this document, **`<config-root>`** refers to the resolved path. This plugin's config file lives at **`<config-root>/plugins/growth.user-context.md`**.
 
 ---
 
 ## Step 0.5 — Peer-plugin import (the heavy lifting)
 
-Before asking the user anything, scan for peer-plugin configs and pre-fill what's there. **Read-only one-time import** — once values land in `relationships.user-context.md`, this plugin does not re-read peer files at runtime. (Re-running setup re-imports.)
+Before asking the user anything, scan for peer-plugin configs and pre-fill what's there. **Read-only one-time import** — once values land in `growth.user-context.md`, this plugin does not re-read peer files at runtime. (Re-running setup re-imports.)
 
 Build an internal "detected" dictionary. For each source, read defensively — if a section is missing or renamed, log a `Notes:` entry and skip silently. Do not fabricate values.
 
@@ -58,7 +58,7 @@ Fallback: extract from `<config-root>/plugins/bizdev-outreach.user-context.md` `
 
 ### Voice — primary
 
-Source: `<config-root>/memory/me/voice.md` (cortex `/setup-voice`) and `<config-root>/plugins/voice.user-context.md` if installed.
+Source: `<config-root>/memory/me/voice.md` (cortex `/setup-voice`) and `<config-root>/plugins/comms.user-context.md` if installed.
 Extract:
 - Three-word descriptors (e.g., "calibrated, practitioner, honest")
 - Sign-off style
@@ -84,7 +84,7 @@ If neither yields a result, ask in the confirmation step.
 
 ### CRM properties
 
-Source: `<config-root>/plugins/core-ops.user-context.md` (preferred) or `<config-root>/plugins/weekly-outreach.user-context.md` `## CRM` section (legacy). <!-- LEGACY_COMPAT -->
+Source: `<config-root>/plugins/ops.user-context.md` (preferred) or `<config-root>/plugins/weekly-outreach.user-context.md` `## CRM` section (legacy). <!-- LEGACY_COMPAT -->
 Extract:
 - Tool (HubSpot / Salesforce / Pipedrive / Attio)
 - Owner ID
@@ -111,9 +111,9 @@ Captured natively in Step 2 (see "Referral network" below), not imported. For an
 
 Runtime-detect, do not ask:
 - `cortex`: `<config-root>/memory/` directory exists
-- `core-ops`: `<config-root>/plugins/core-ops.user-context.md` exists
-- `daily-brief`: `<config-root>/plugins/daily-brief.user-context.md` exists
-- `voice`: `<config-root>/plugins/voice.user-context.md` exists
+- `ops`: `<config-root>/plugins/ops.user-context.md` exists
+- `briefing`: `<config-root>/plugins/briefing.user-context.md` exists
+- `comms`: `<config-root>/plugins/comms.user-context.md` exists
 
 Mark each as installed/not. Used to decide whether to delegate to subagents like `pipeline-analyst`. (`relationships-director`, mode: research, is bundled with this plugin as of 2026-09-15 — no longer a companion-detection case.)
 
@@ -121,7 +121,7 @@ Mark each as installed/not. Used to decide whether to delegate to subagents like
 
 ## Step 1 — Check for existing relationships config
 
-Read `<config-root>/plugins/relationships.user-context.md`.
+Read `<config-root>/plugins/growth.user-context.md`.
 
 - **Populated:** ask whether to (a) merge peer-import updates into existing file, (b) update specific sections only, (c) start over. Default: (a) merge — least destructive.
 - **Missing:** start fresh from the peer-import dictionary.
@@ -139,7 +139,7 @@ Detected from your existing config:
   Identity:           [name] · [company] · [one-liner]
   Primary voice:      [three words] · [sign-off]
   CRM:                [tool] · [N custom properties]
-  Companions:         cortex ✓ · core-ops ✓ · daily-brief ✓ · voice ✓ · ...
+  Companions:         cortex ✓ · ops ✓ · briefing ✓ · comms ✓ · ...
 
 Look right? (y / fix / replay specific section)
 ```
@@ -204,7 +204,7 @@ That's it. For a full-stack user with peer files populated plus Q6/Q7 answered, 
 
 ## Step 3 — Write the config
 
-Populate `<config-root>/plugins/relationships.user-context.md`. See `references/user-context.template.md` for the slim canonical layout.
+Populate `<config-root>/plugins/growth.user-context.md`. See `references/user-context.template.md` for the slim canonical layout.
 
 The written file contains:
 - Identity (minimal — primary key for templates: name, first_name, company, one_liner)
@@ -214,9 +214,9 @@ The written file contains:
 - Companion-plugin detection results (so /relationships knows what to delegate to)
 - Provenance notes (which fields came from which peer file, vs. answered natively)
 
-Identity, voice, and CRM are NOT written here — `/relationships` reads them live from their canonical peer files (cortex, core-ops) at runtime. ICP, Apollo/signal preferences, and referral cooling rules ARE written here — they're native to this plugin as of the 2026-09-15 lead-engine/referral-engine merge, not read from a peer.
+Identity, voice, and CRM are NOT written here — `/relationships` reads them live from their canonical peer files (cortex, ops) at runtime. ICP, Apollo/signal preferences, and referral cooling rules ARE written here — they're native to this plugin as of the 2026-09-15 lead-engine/referral-engine merge, not read from a peer.
 
-**Exception:** if the cortex/core-ops peer files are missing (standalone install), capture the equivalent identity/voice/CRM fields in `relationships.user-context.md` under `## Standalone fallback` sections. The plugin can run without peers; it just stores its own copy.
+**Exception:** if the cortex/ops peer files are missing (standalone install), capture the equivalent identity/voice/CRM fields in `growth.user-context.md` under `## Standalone fallback` sections. The plugin can run without peers; it just stores its own copy.
 
 ### Initialize signal-pipeline files (if first run)
 

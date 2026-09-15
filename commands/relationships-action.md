@@ -18,7 +18,7 @@ Not for: running the full brief (that's `/relationships`). Not for: drafting (th
 
 ## Step 0 — Preflight
 
-Read `<config-root>/plugins/relationships.user-context.md`. If missing → route to `/setup-relationships` and stop.
+Read `<config-root>/plugins/growth.user-context.md`. If missing → route to `/setup-relationships` and stop.
 
 ---
 

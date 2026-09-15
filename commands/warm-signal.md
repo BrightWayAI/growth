@@ -11,7 +11,7 @@ You are preparing the user to warm a prospect *before* sending the cold DM. The 
 ## Step 0: Preflight
 
 Read:
-- `<config-root>/plugins/relationships.user-context.md`
+- `<config-root>/plugins/growth.user-context.md`
 - `references/signal-voice-rules.md`
 - `<config-root>/relationships/pipeline.md`
 

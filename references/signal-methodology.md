@@ -14,7 +14,7 @@ When in doubt, prioritize *signal freshness* over *message polish*. A 4-hour-old
 
 Before you draft, capture, or log anything, **read in this order**:
 
-1. `<config-root>/plugins/relationships.user-context.md` — the user's company, ICP, voice, value-adds, tools, cadence preferences. If this file is missing or contains the placeholder, tell the user to run `/setup-relationships` first and stop.
+1. `<config-root>/plugins/growth.user-context.md` — the user's company, ICP, voice, value-adds, tools, cadence preferences. If this file is missing or contains the placeholder, tell the user to run `/setup-relationships` first and stop.
 2. `references/seven-signals.md` — the canonical 7-signal taxonomy with the prompts for classifying each.
 3. `references/signal-voice-rules.md` — banned phrases, tone-matching rules, length caps, the 27-word opener pattern.
 4. `<config-root>/relationships/pipeline.md` — current active signals.

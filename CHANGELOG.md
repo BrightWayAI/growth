@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.4.0] — renamed to growth (2026-09-15)
+
+### Changed
+- Renamed from `relationships` to `growth` (display name: Growth Engine) as part of the 2026-09-15 Nucleus plugin rename. The `/relationships` command is unchanged. Old plugin ID/repo name redirects; see marketplace catalog.
+
 ## [0.3.6] — compatibility and role metadata hardening (2026-09-15)
 
 ### Changed

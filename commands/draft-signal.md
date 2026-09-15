@@ -12,7 +12,7 @@ You are drafting outreach messages for a signal already captured in the pipeline
 
 Read all of:
 
-- `<config-root>/plugins/relationships.user-context.md`
+- `<config-root>/plugins/growth.user-context.md`
 - `references/signal-voice-rules.md`
 - `<config-root>/relationships/pipeline.md`
 - `<config-root>/relationships/sent-log.md`

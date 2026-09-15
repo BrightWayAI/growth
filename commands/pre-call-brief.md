@@ -11,7 +11,7 @@ You are generating a pre-call brief for a booked meeting. This is the highest-le
 ## Step 0: Preflight
 
 Read:
-- `<config-root>/plugins/relationships.user-context.md`
+- `<config-root>/plugins/growth.user-context.md`
 - `<config-root>/relationships/pipeline.md`
 - `<config-root>/relationships/sent-log.md`
 - `references/seven-signals.md`
