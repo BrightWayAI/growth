@@ -1,0 +1,36 @@
+{
+  "name": "relationships",
+  "version": "0.2.4",
+  "description": "Build a daily relationship cockpit, rebalance a network, and create context-aware touchpoint drafts from shared identity, voice, and memory.",
+  "author": {
+    "name": "BrightWay AI",
+    "url": "https://brightwayai.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/BrightWayAI/relationships",
+  "repository": "https://github.com/BrightWayAI/relationships",
+  "keywords": [
+    "nucleus",
+    "chatgpt",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Relationships",
+    "shortDescription": "Prioritize relationship actions and draft useful touchpoints",
+    "longDescription": "Build a daily relationship cockpit, rebalance a network, and create context-aware touchpoint drafts from shared identity, voice, and memory.",
+    "developerName": "BrightWay AI",
+    "category": "Sales",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://github.com/BrightWayAI/relationships",
+    "defaultPrompt": [
+      "Build today's relationship brief.",
+      "Draft a touchpoint for this person.",
+      "Rebalance my relationship network."
+    ]
+  }
+}

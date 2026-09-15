@@ -50,3 +50,22 @@ Drafts only. Never sends. Reads your authorized connectors; writes only to your 
 ## Status
 
 v0.1.0 — scaffold. Setup command, daily command, templates library, and person-page extensions documented but stubbed. See `CHANGELOG.md` for what's in this release and `nucleus/docs/proposals/relationships-plugin.md` (in the nucleus repo) for the design spec.
+
+<!-- OPENAI-SUPPORT:START -->
+## ChatGPT and Codex
+
+Relationships ships as a native OpenAI plugin as well as a Claude plugin. In
+ChatGPT desktop Local Work, enable **Relationships** and ask naturally or mention
+`@Relationships`. In Codex, use natural language or the namespaced skills exposed
+by the plugin. Claude slash-command names in this README remain workflow aliases.
+
+All hosts resolve the same `<config-root>` used by Cortex, so Claude, ChatGPT desktop,
+and Codex can share identity, voice, memory, and per-plugin settings without copying
+them. The installed plugin directory is read-only at runtime. See
+[`references/openai-portability.md`](references/openai-portability.md) for capability
+mapping, connector checks, permissions, and honest degraded behavior.
+
+Import the full catalog from
+[`BrightWayAI/nucleus`](https://github.com/BrightWayAI/nucleus); Nucleus is the master
+marketplace, while each plugin remains independently installable.
+<!-- OPENAI-SUPPORT:END -->

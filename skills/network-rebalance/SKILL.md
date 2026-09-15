@@ -3,6 +3,16 @@ name: network-rebalance
 description: Natural-language entrypoint for the quarterly network re-tagging walk. Fires when the user says "rebalance my network," "re-tag my contacts," "audit my tiers," "review my relationship tiers," or asks for the quarterly relationship review. Confirms, then routes to /network-rebalance.
 ---
 
+<!-- OPENAI-ADAPTER:START -->
+## OpenAI host binding
+
+Before acting, read `../../references/openai-portability.md`. That file translates
+host-specific tools, agents, artifacts, scheduling, connectors, and config-root
+access for ChatGPT and Codex. It overrides concrete Claude/Cowork tool names only;
+the workflow, safety gates, and output contract in this skill remain canonical.
+<!-- OPENAI-ADAPTER:END -->
+
+
 # Skill — network rebalance
 
 This skill activates on phrases like:

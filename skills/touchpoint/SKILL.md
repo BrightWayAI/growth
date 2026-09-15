@@ -3,6 +3,16 @@ name: touchpoint
 description: Natural-language entrypoint for ad-hoc relationship logging. Fires when the user describes a touchpoint they just had — "I had a great catch-up with Sang," "Just texted my brother," "Commented on Charity's LinkedIn post," "Had a call with [name]." Resolves the person from context, infers channel, drafts a Recent Interactions log entry, optionally proposes intent/tier shift. Drafts only — never sends, never modifies CRM.
 ---
 
+<!-- OPENAI-ADAPTER:START -->
+## OpenAI host binding
+
+Before acting, read `../../references/openai-portability.md`. That file translates
+host-specific tools, agents, artifacts, scheduling, connectors, and config-root
+access for ChatGPT and Codex. It overrides concrete Claude/Cowork tool names only;
+the workflow, safety gates, and output contract in this skill remain canonical.
+<!-- OPENAI-ADAPTER:END -->
+
+
 # Skill — touchpoint
 
 Activates on phrases like:

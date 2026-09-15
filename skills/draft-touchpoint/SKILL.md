@@ -3,6 +3,16 @@ name: draft-touchpoint
 description: Natural-language entrypoint for per-contact on-demand drafting. Fires when the user says "draft a message to [name]," "help me follow up with [name]," "write something to [name]," or names a person they want to reach. Confirms scope, then routes to /draft-touchpoint.
 ---
 
+<!-- OPENAI-ADAPTER:START -->
+## OpenAI host binding
+
+Before acting, read `../../references/openai-portability.md`. That file translates
+host-specific tools, agents, artifacts, scheduling, connectors, and config-root
+access for ChatGPT and Codex. It overrides concrete Claude/Cowork tool names only;
+the workflow, safety gates, and output contract in this skill remain canonical.
+<!-- OPENAI-ADAPTER:END -->
+
+
 # Skill — draft a touchpoint
 
 This skill activates on phrases like:

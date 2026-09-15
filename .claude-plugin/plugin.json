@@ -1,11 +1,14 @@
 {
   "name": "relationships",
   "description": "Daily relationship cockpit. /relationships produces a prioritized 3-bucket brief (new business, relationship building, network expansion) with 3 actions per bucket — each one ships with a recommended channel, time estimate, and a copy-ready draft drawn from a template library. v0.2.0 adds the intent dimension (client_delivery / drive_active / door_opening / reciprocal / advising / content_share / keep_warm / passive_visibility / awaiting_reply) so the brief frames cards according to the dynamic of engagement, not just cadence. /setup-relationships captures your ICP, tier definitions, voices, and time-budget preferences. Builds on cortex person pages + voice + identity; delegates research to contact-researcher and pipeline-analyst when installed. Drafts only — never sends.",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "author": {
     "name": "BrightWay AI",
     "url": "https://brightwayai.com"
   },
   "license": "MIT",
-  "platforms": ["cowork", "claude-code"]
+  "platforms": [
+    "cowork",
+    "claude-code"
+  ]
 }

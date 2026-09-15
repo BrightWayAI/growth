@@ -3,6 +3,16 @@ name: relationships-action
 description: Natural-language entrypoint for recording an action on a relationships brief option. Fires when the user says "I sent that to Sarah," "snooze the Derek one for 3 days," "mark #1 done," "skip the second one," or similar. Resolves the referenced option from today's brief, then routes to /relationships-action with a structured event payload.
 ---
 
+<!-- OPENAI-ADAPTER:START -->
+## OpenAI host binding
+
+Before acting, read `../../references/openai-portability.md`. That file translates
+host-specific tools, agents, artifacts, scheduling, connectors, and config-root
+access for ChatGPT and Codex. It overrides concrete Claude/Cowork tool names only;
+the workflow, safety gates, and output contract in this skill remain canonical.
+<!-- OPENAI-ADAPTER:END -->
+
+
 # Skill — relationships action
 
 This skill activates on phrases like:

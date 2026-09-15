@@ -1,7 +1,17 @@
 ---
-name: setup-relationships
+name: setup
 description: Natural-language entrypoint for configuring the relationships plugin. Fires when the user says "set up relationships," "configure my network," "let's set up my relationships plugin," "I want to track my relationships," or similar. Confirms, then routes to /setup-relationships.
 ---
+
+<!-- OPENAI-ADAPTER:START -->
+## OpenAI host binding
+
+Before acting, read `../../references/openai-portability.md`. That file translates
+host-specific tools, agents, artifacts, scheduling, connectors, and config-root
+access for ChatGPT and Codex. It overrides concrete Claude/Cowork tool names only;
+the workflow, safety gates, and output contract in this skill remain canonical.
+<!-- OPENAI-ADAPTER:END -->
+
 
 # Skill — relationships setup
 

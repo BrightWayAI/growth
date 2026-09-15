@@ -3,6 +3,16 @@ name: relationships
 description: Natural-language entrypoint for the daily relationship brief. Fires when the user asks who to reach out to today, requests an outreach plan, wants their network priorities, or asks for the relationship cockpit. Confirms, then routes to /relationships.
 ---
 
+<!-- OPENAI-ADAPTER:START -->
+## OpenAI host binding
+
+Before acting, read `../../references/openai-portability.md`. That file translates
+host-specific tools, agents, artifacts, scheduling, connectors, and config-root
+access for ChatGPT and Codex. It overrides concrete Claude/Cowork tool names only;
+the workflow, safety gates, and output contract in this skill remain canonical.
+<!-- OPENAI-ADAPTER:END -->
+
+
 # Skill — relationships daily brief
 
 This skill activates on phrases like:

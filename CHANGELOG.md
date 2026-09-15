@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.4] — OpenAI host adapter (2026-09-14)
+
+### Added
+- Native Codex/ChatGPT plugin manifest, durable `AGENTS.md` entrypoint, and an explicit OpenAI capability/degradation contract.
+- GPT-discoverable skill aliases for canonical command workflows and read-only Codex role bindings where this plugin ships agents.
+- Shared config-root resolution compatible with Cortex and Claude; all GPT tests use repository fixtures or temporary directories only.
+
 ## 0.2.3 — Reference docs + retired-plugin migration (2026-05-28)
 
 Followup to v0.2.2 completing the deferred items from the v0.2.0 → v0.2.2 review punch list. Coordinated with cortex v4.12.3 + daily-brief v0.4.2.
