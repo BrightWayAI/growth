@@ -53,9 +53,9 @@ v0.1.0 — scaffold. Setup command, daily command, templates library, and person
 <!-- OPENAI-SUPPORT:START -->
 ## ChatGPT and Codex
 
-Relationships ships as a native OpenAI plugin as well as a Claude plugin. In
-ChatGPT desktop Local Work, enable **Relationships** and ask naturally or mention
-`@Relationships`. In Codex, use natural language or the namespaced skills exposed
+Growth Engine ships as a native OpenAI plugin as well as a Claude plugin. In
+ChatGPT desktop Local Work, enable **Growth Engine** and ask naturally or mention
+`@Growth Engine`. In Codex, use natural language or the namespaced skills exposed
 by the plugin. Claude slash-command names in this README remain workflow aliases.
 
 All hosts resolve the same `<config-root>` used by Cortex, so Claude, ChatGPT desktop,

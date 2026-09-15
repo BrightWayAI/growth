@@ -1,14 +1,14 @@
 {
   "name": "growth",
-  "version": "0.6.0",
-  "description": "Growth Engine. Build a daily relationship cockpit, research contacts, act on buying signals and referral opportunities, rebalance a network, create context-aware touchpoint drafts, and run CRM pipeline analysis and forecasting (pipeline-analyst, pipeline-forecast).",
+  "version": "0.6.1",
+  "description": "Build a daily relationship cockpit, research contacts, act on buying signals and referral opportunities, rebalance a network, rank and forecast pipeline, and create context-aware touchpoint drafts.",
   "author": {
     "name": "BrightWay AI",
     "url": "https://brightwayai.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/BrightWayAI/relationships",
-  "repository": "https://github.com/BrightWayAI/relationships",
+  "homepage": "https://github.com/BrightWayAI/growth",
+  "repository": "https://github.com/BrightWayAI/growth",
   "keywords": [
     "nucleus",
     "chatgpt",
@@ -18,7 +18,7 @@
   "interface": {
     "displayName": "Growth Engine",
     "shortDescription": "Prioritize relationship actions and draft useful touchpoints",
-    "longDescription": "Build a daily relationship cockpit, research contacts, act on buying signals and referral opportunities, rebalance a network, and create context-aware touchpoint drafts.",
+    "longDescription": "Build a daily relationship cockpit, research contacts, act on buying signals and referral opportunities, rebalance a network, rank and forecast pipeline, and create context-aware touchpoint drafts.",
     "developerName": "BrightWay AI",
     "category": "Sales",
     "capabilities": [
@@ -26,11 +26,11 @@
       "Write",
       "Interactive"
     ],
-    "websiteURL": "https://github.com/BrightWayAI/relationships",
+    "websiteURL": "https://github.com/BrightWayAI/growth",
     "defaultPrompt": [
       "Build today's relationship brief.",
       "Draft a touchpoint for this person.",
-      "Rebalance my relationship network."
+      "Analyze my pipeline."
     ]
   }
 }
