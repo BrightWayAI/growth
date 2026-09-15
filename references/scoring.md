@@ -179,7 +179,7 @@ This lets a person with `preferred_channels: [text, call]` get text for routine 
 ## What this scoring is NOT
 
 - It does not estimate response probability. Response prediction is a hard ML problem and not what we're solving.
-- It does not predict revenue. ICP + funnel + close is `ops` / `pipeline-analyst` territory.
+- It does not predict revenue. ICP + funnel + close is `pipeline-analyst` / `pipeline-forecast` territory (bundled in this plugin).
 - It is not personalized via learning loops in v0.1. Every user gets the same default weights. Phase 4+ might add per-user weight tuning based on which surfaced actions got "done" vs "snoozed."
 
 ## Tuning

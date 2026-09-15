@@ -58,7 +58,7 @@ Fallback: extract from `<config-root>/plugins/bizdev-outreach.user-context.md` `
 
 ### Voice — primary
 
-Source: `<config-root>/memory/me/voice.md` (cortex `/setup-voice`) and `<config-root>/plugins/comms.user-context.md` if installed.
+Source: `<config-root>/memory/me/voice.md` (comms `/setup-voice`) and `<config-root>/plugins/comms.user-context.md` if installed.
 Extract:
 - Three-word descriptors (e.g., "calibrated, practitioner, honest")
 - Sign-off style
@@ -115,7 +115,7 @@ Runtime-detect, do not ask:
 - `briefing`: `<config-root>/plugins/briefing.user-context.md` exists
 - `comms`: `<config-root>/plugins/comms.user-context.md` exists
 
-Mark each as installed/not. Used to decide whether to delegate to subagents like `pipeline-analyst`. (`relationships-director`, mode: research, is bundled with this plugin as of 2026-09-15 — no longer a companion-detection case.)
+Mark each as installed/not — used for companion features like `ops`'s `/cos` and `briefing`'s `/plan-tomorrow`. (`relationships-director` and `pipeline-analyst`/`pipeline-forecast`, mode: research/rank/forecast, are bundled with this plugin as of 2026-09-15 — no longer a companion-detection case.)
 
 ---
 

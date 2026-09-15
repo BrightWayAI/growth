@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.0] — pipeline-analyst and pipeline-forecast move here from ops (2026-09-15)
+
+### Added
+- `agents/pipeline-analyst.md` and `agents/pipeline-forecast.md` (and their Codex mirrors) moved here from `ops`. `/relationships` invokes `pipeline-analyst` natively — no longer a companion-detection case.
+
+### Changed
+- README, plugin manifests (Claude + Codex), `references/scoring.md`, and `/setup-relationships` updated to reflect native ownership of CRM pipeline intelligence.
+
 ## [0.4.0] — renamed to growth (2026-09-15)
 
 ### Changed

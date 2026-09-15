@@ -38,8 +38,7 @@ Signal sourcing (Apollo/ICP/7-signal taxonomy), the `relationships-director` dee
 Works standalone, but smarter with:
 
 - **cortex** — person pages, voice, identity, hot cache, workstream nodes
-- **ops** — `pipeline-analyst` for new-business ranking
-- **briefing** — pairs with `/brief` as the morning surface
+- **briefing** — pairs with `/brief` as the morning surface; briefing calls this plugin's `pipeline-analyst` for daily prioritization
 
 If a companion is missing, the plugin degrades gracefully — no required dependency beyond cortex foundation files.
 
