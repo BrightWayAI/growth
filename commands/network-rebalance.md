@@ -16,7 +16,7 @@ Designed to be **run twice**:
 
 Read `<config-root>/plugins/relationships.user-context.md`. If missing → route to `/setup-relationships` and stop.
 
-Read `<config-root>/identity.md` for the user's name (used in confirmation prose).
+Read `<config-root>/memory/me/identity.md` for the user's name (used in confirmation prose).
 
 Verify cortex is installed: `<config-root>/memory/` directory must exist. If missing → "This command requires cortex (claude-cortex) installed for person-page data. Install cortex + run /setup-identity first."
 

@@ -46,7 +46,7 @@ Build an internal "detected" dictionary. For each source, read defensively — i
 
 ### Identity
 
-Source: `<config-root>/identity.md` (cortex `/setup-identity`).
+Source: `<config-root>/memory/me/identity.md` (cortex `/setup-identity`).
 Extract:
 - Name → `identity.name`
 - Company → `identity.company`
@@ -56,7 +56,7 @@ Fallback: extract from `<config-root>/plugins/bizdev-outreach.user-context.md` `
 
 ### Voice — primary
 
-Source: `<config-root>/voice.md` (cortex `/setup-voice`) and `<config-root>/plugins/writing-style.user-context.md` if installed.
+Source: `<config-root>/memory/me/voice.md` (cortex `/setup-voice`) and `<config-root>/plugins/writing-style.user-context.md` if installed.
 Extract:
 - Three-word descriptors (e.g., "calibrated, practitioner, honest")
 - Sign-off style

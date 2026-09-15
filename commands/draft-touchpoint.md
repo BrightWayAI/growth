@@ -17,7 +17,7 @@ Use cases:
 
 Read `<config-root>/plugins/relationships.user-context.md`. If missing → route to `/setup-relationships` and stop.
 
-Read `<config-root>/identity.md` and `<config-root>/voice.md` (or named voice files if user has multiple).
+Read `<config-root>/memory/me/identity.md` and `<config-root>/memory/me/voice.md` (or named voice files if user has multiple).
 
 ---
 
@@ -106,7 +106,7 @@ Variables to fill (full list in `references/templates/README.md`):
 
 **Voice routing:**
 - If `relationship_class: personal` AND user has a `personal` voice defined → use it.
-- Otherwise use the primary voice from `<config-root>/voice.md`.
+- Otherwise use the primary voice from `<config-root>/memory/me/voice.md`.
 - For network-expansion content posts, route to the named voice for that surface.
 
 **Variable resolution failures:**

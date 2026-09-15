@@ -30,7 +30,7 @@ Extract:
 - Companion plugins available
 
 Also read (best-effort, skip silently if missing):
-- `<config-root>/identity.md`, `<config-root>/voice.md`
+- `<config-root>/memory/me/identity.md`, `<config-root>/memory/me/voice.md`
 - `<config-root>/memory/hot.md` (cortex hot cache — recent context)
 - `<config-root>/memory/DASHBOARD.md` (cortex dashboard — active threads, P0s)
 

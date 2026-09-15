@@ -12,7 +12,7 @@
 - **Apollo** (if connected) — net-new prospects matching your ICP. Read-only.
 - **Plugin user-context** — `<config-root>/plugins/relationships.user-context.md` (your ICP, tiers, voice rules, integrations).
 - **Templates** — `references/templates/**/*.md` (bundled defaults + your custom additions).
-- **Shared foundation files** — `<config-root>/identity.md`, `<config-root>/voice.md` (read-only).
+- **Shared foundation files** — `<config-root>/memory/me/identity.md`, `<config-root>/memory/me/voice.md` (read-only).
 
 **Writes:**
 - **Plugin user-context** — `<config-root>/plugins/relationships.user-context.md` (after `/setup-relationships`).

@@ -104,8 +104,8 @@ This section ONLY populates when a peer file is missing at setup time. The plugi
 Track which fields came from which peer file. Helps debugging when something feels off.
 
 ```
-- Identity: <config-root>/identity.md (2026-05-11)
-- Primary voice: <config-root>/voice.md (2026-05-11)
+- Identity: <config-root>/memory/me/identity.md (2026-05-11)
+- Primary voice: <config-root>/memory/me/voice.md (2026-05-11)
 - Primary ICP: <config-root>/plugins/lead-engine.user-context.md (2026-05-11)
 - CRM: <config-root>/plugins/core-ops.user-context.md (2026-05-11)
 - Apollo: <config-root>/plugins/lead-engine.user-context.md (2026-05-11)
