@@ -87,7 +87,7 @@ Current schema version: **`0.1.0`**.
     "name": "Sarah Chen",
     "first_name": "Sarah",
     "title": "Head of Content",
-    "company": "MedBridge",
+    "company": "Vantage Health",
     "tier": "operational",
     "intent": "keep_warm",
     "relationship_class": "business",
@@ -119,7 +119,7 @@ Current schema version: **`0.1.0`**.
   },
   "draft": {
     "subject": null,
-    "body": "Sarah — saw the Series B at MedBridge. Reaching out because...",
+    "body": "Sarah — saw the Series B at Vantage Health. Reaching out because...",
     "variables_filled": [
       "person.first_name",
       "person.company",
@@ -133,12 +133,12 @@ Current schema version: **`0.1.0`**.
   },
   "trigger": {
     "type": "funding | job_change | their_post | news | cadence_overdue | warm_intro | cold_icp | mutual_mention | none",
-    "summary": "MedBridge announced $12M Series B last week (TechCrunch)",
+    "summary": "Vantage Health announced $12M Series B last week (TechCrunch)",
     "source": "websearch | crm | gmail | cortex | manual",
     "observed_at": "2026-05-22"
   },
   "actions": {
-    "copy_payload": "Sarah — saw the Series B at MedBridge...",
+    "copy_payload": "Sarah — saw the Series B at Vantage Health...",
     "next_steps_if_done": [
       "Append to cortex person page Recent interactions",
       "Update next_touch_target"

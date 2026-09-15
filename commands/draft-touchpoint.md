@@ -35,7 +35,7 @@ Parse the user's input. Strategies in priority order:
 If multiple matches, present them and ask which:
 
 > "Found 3 possible matches:
-> - Sarah Chen (MedBridge) — last interaction 12d ago
+> - Sarah Chen (Vantage Health) — last interaction 12d ago
 > - Sarah Chen (Acme Learning) — last interaction 4mo ago
 > - Sarah Chen-Williams (Globex) — last interaction 18d ago
 > Which one?"
@@ -141,7 +141,7 @@ The user decides.
 Format for fast scanning:
 
 ```
-DRAFT — to Sarah Chen (MedBridge) via LinkedIn DM (warm)
+DRAFT — to Sarah Chen (Vantage Health) via LinkedIn DM (warm)
 Voice: primary  ·  Template: dm/linkedin-warm-checkin  ·  Est. 4 min
 
 WHY NOW

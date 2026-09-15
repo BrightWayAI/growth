@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.7] — Follow-up privacy fix: MedBridge, sang-lee (2026-09-15)
+
+Caught in a second sweep after v0.2.5 shipped — a real prospect company name
+("MedBridge") and a real contact slug ("sang-lee") remained in
+`references/today-json-schema.md`, `references/person-page-extensions.md`,
+`commands/draft-touchpoint.md`, and `references/ui-integration.md`.
+Genericized. No functional change.
+
 ## [0.2.6] — Identity/voice moved to memory/me/ (2026-09-15)
 
 ### Changed

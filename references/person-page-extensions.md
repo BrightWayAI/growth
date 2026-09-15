@@ -142,7 +142,7 @@ relationships:
   generosity_ledger:
     - date: 2026-05-12
       direction: gave
-      note: "intro to Sarah at MedBridge"
+      note: "intro to Sarah at Vantage Health"
     - date: 2026-04-28
       direction: gave
       note: "shared their LinkedIn post"

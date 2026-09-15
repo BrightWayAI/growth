@@ -156,7 +156,7 @@ The sync daemon picks up the file and invokes `/relationships-action --file=<pat
   "option_id": null,
   "brief_id": null,
   "bucket": null,
-  "person_slug": "sang-lee",
+  "person_slug": "jordan-diaz",
   "channel": "call",
   "notes": "had a great catch-up; he's intro'ing me to two folks at NationSwell",
   "meta": {
