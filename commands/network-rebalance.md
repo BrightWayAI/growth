@@ -39,7 +39,7 @@ Detect legacy plugin user-context files from the retired `weekly-outreach` + `bi
 
 ```
 legacy_files = [
-  <config-root>/plugins/weekly-outreach.user-context.md,
+  <config-root>/plugins/weekly-outreach.user-context.md, <!-- LEGACY_COMPAT -->
   <config-root>/plugins/bizdev-outreach.user-context.md,
 ]
 

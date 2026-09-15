@@ -15,22 +15,24 @@ Idempotent — re-running updates rather than restarts.
 
 ## Step 0 — Resolve plugin config root
 
-Per-plugin config in this marketplace lives under a user-chosen folder, recorded at `~/Documents/.claude-plugin-config-root` (single-line text file in the user's home).
+Resolve `<config-root>` through explicit override → `CORTEX_CONFIG_ROOT` →
+`~/.cortex/config-root` → legacy pointer → default. A malformed
+higher-priority pointer is an error, not permission to fall through.
 
 ### A — Try the pointer
 
-Ensure access to `~/Documents`. In Cowork, call `request_cowork_directory(~/Documents)` once if not already granted. In Claude Code (or any environment with direct filesystem access), no mount is needed. Then read `~/Documents/.claude-plugin-config-root`.
-
-- **Exists:** read line 1 → that's the config root path. Ensure access to `<config-root>`. If running in Cowork and the folder isn't already mounted in this session, call `request_cowork_directory(<config-root>)`. If running in Claude Code or another environment with direct filesystem access, no mount call is needed. Skip to section C.
-- **Missing:** continue to section B.
+If an intentional root resolves, request access only to that root in Cowork and
+continue to section C. If no pointer or override exists, continue to section B.
 
 ### B — First-time bootstrap
 
-Prompt: "First-time plugin setup. Where should I store your plugin config — identity, voice, and per-plugin settings? Pick a folder you control (e.g., `~/Documents/Claude/` or `~/Documents/PluginConfig/`). The folder will hold `identity.md`, `voice.md`, and a `plugins/` subdirectory."
+Prompt: "First-time Nucleus setup. Where should the shared config root live? Pick a folder you control. It will contain private identity/voice files under `memory/me/`, shared memory, and per-plugin settings."
 
 Then:
 1. Ensure access to `<path>`. If running in Cowork and the folder isn't already mounted, call `request_cowork_directory(<path>)`. In Claude Code, no mount call needed.
-2. Create `<path>/plugins/`. Write absolute path to `~/Documents/.claude-plugin-config-root`.
+2. Create `<path>/plugins/` and atomically write the absolute path to
+   `~/.cortex/config-root`. Replacing a different target requires a second
+   explicit confirmation.
 
 ### C — Note resolved root
 
@@ -70,7 +72,7 @@ If the legacy bizdev-outreach file has voice-specific overrides (banned phrases,
 
 ### ICP (primary + secondary + out-of-ICP) — native as of 2026-09-15
 
-This used to import from a separate `lead-engine` plugin; lead-engine retired into `relationships` and its ICP capture is now a native question in Step 2 (see "ICP & signal sourcing" below). For an existing install migrating from lead-engine, check for a legacy `<config-root>/plugins/lead-engine.user-context.md` `## ICP` section once and offer to carry it forward verbatim instead of re-asking. Also check the older legacy sources if lead-engine's file isn't present: `<config-root>/plugins/weekly-outreach.user-context.md` `## ICP` section, or `<config-root>/plugins/bizdev-outreach.user-context.md` `## Company / Target market` block.
+This used to import from a separate `lead-engine` plugin; lead-engine retired into `relationships` and its ICP capture is now a native question in Step 2 (see "ICP & signal sourcing" below). For an existing install migrating from lead-engine, check for a legacy `<config-root>/plugins/lead-engine.user-context.md` `## ICP` section once and offer to carry it forward verbatim instead of re-asking. Also check the older legacy sources if lead-engine's file isn't present: `<config-root>/plugins/weekly-outreach.user-context.md` `## ICP` section, or `<config-root>/plugins/bizdev-outreach.user-context.md` `## Company / Target market` block. <!-- LEGACY_COMPAT -->
 
 ### Current quarter focus + outcome target
 
@@ -82,7 +84,7 @@ If neither yields a result, ask in the confirmation step.
 
 ### CRM properties
 
-Source: `<config-root>/plugins/core-ops.user-context.md` (preferred) or `<config-root>/plugins/weekly-outreach.user-context.md` `## CRM` section (legacy).
+Source: `<config-root>/plugins/core-ops.user-context.md` (preferred) or `<config-root>/plugins/weekly-outreach.user-context.md` `## CRM` section (legacy). <!-- LEGACY_COMPAT -->
 Extract:
 - Tool (HubSpot / Salesforce / Pipedrive / Attio)
 - Owner ID
@@ -92,14 +94,14 @@ Extract:
 
 ### Apollo + signal preferences — native as of 2026-09-15
 
-Captured natively in Step 2 (see "ICP & signal sourcing" below), not imported. For an existing install migrating from lead-engine, check for `<config-root>/plugins/lead-engine.user-context.md`'s Apollo settings (or the older `<config-root>/plugins/weekly-outreach.user-context.md` `## Apollo` section) once and offer to carry them forward instead of re-asking:
+Captured natively in Step 2 (see "ICP & signal sourcing" below), not imported. For an existing install migrating from lead-engine, check for `<config-root>/plugins/lead-engine.user-context.md`'s Apollo settings (or the older `<config-root>/plugins/weekly-outreach.user-context.md` `## Apollo` section) once and offer to carry them forward instead of re-asking: <!-- LEGACY_COMPAT -->
 - Enabled? (Y/N)
 - Daily DM budget, weekly net-new cap
 - Signal priorities (job changes, funding, posts)
 
 ### Referral cooling + connector taxonomy — native as of 2026-09-15
 
-Captured natively in Step 2 (see "Referral network" below), not imported. For an existing install migrating from referral-engine, check for `<config-root>/plugins/referral-engine.user-context.md` once and offer to carry it forward:
+Captured natively in Step 2 (see "Referral network" below), not imported. For an existing install migrating from referral-engine, check for `<config-root>/plugins/referral-engine.user-context.md` once and offer to carry it forward: <!-- LEGACY_COMPAT -->
 - Connector taxonomy (relationship_type values that count as connector, lists, tags)
 - Quiet threshold (default 60 days)
 - Trigger patterns (positive moments, fiscal-year, seasonal, conference proximity)

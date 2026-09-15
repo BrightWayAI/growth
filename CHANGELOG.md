@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.6] — compatibility and role metadata hardening (2026-09-15)
+
+### Changed
+- Marked retired-plugin reads as explicit one-time compatibility branches so active architecture checks can prevent new runtime dependencies.
+- Added host-neutral reasoning-tier metadata to the relationships director.
+- Standardized setup and person-page persistence on the vendor-neutral config-root resolver.
+
 ## [0.3.5] — Codex adapter synchronization (2026-09-15)
 
 ### Added
