@@ -56,7 +56,7 @@ Fallback: extract from `<config-root>/plugins/bizdev-outreach.user-context.md` `
 
 ### Voice — primary
 
-Source: `<config-root>/memory/me/voice.md` (cortex `/setup-voice`) and `<config-root>/plugins/writing-style.user-context.md` if installed.
+Source: `<config-root>/memory/me/voice.md` (cortex `/setup-voice`) and `<config-root>/plugins/voice.user-context.md` if installed.
 Extract:
 - Three-word descriptors (e.g., "calibrated, practitioner, honest")
 - Sign-off style
@@ -120,7 +120,7 @@ Runtime-detect, do not ask:
 - `core-ops`: `<config-root>/plugins/core-ops.user-context.md` exists
 - `referral-engine`: `<config-root>/plugins/referral-engine.user-context.md` exists
 - `daily-brief`: `<config-root>/plugins/daily-brief.user-context.md` exists
-- `writing-style`: `<config-root>/plugins/writing-style.user-context.md` exists
+- `voice`: `<config-root>/plugins/voice.user-context.md` exists
 
 Mark each as installed/not. Used to decide whether to delegate to subagents like `contact-researcher` and `pipeline-analyst`.
 

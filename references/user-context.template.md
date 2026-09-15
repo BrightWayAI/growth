@@ -22,7 +22,7 @@ _Last updated: [filled by setup]_
 - **core-ops:** [Y/N — `core-ops.user-context.md` exists; if Y, CRM config comes from here]
 - **referral-engine:** [Y/N — `referral-engine.user-context.md` exists; if Y, cooling rules come from here]
 - **daily-brief:** [Y/N]
-- **writing-style:** [Y/N — if Y, voice rules come from here in addition to `voice.md`]
+- **voice:** [Y/N — if Y, voice rules come from here in addition to `voice.md`]
 
 ## Tiers (configurable, defaults shown)
 

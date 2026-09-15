@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.8] — writing-style renamed to voice (2026-09-15)
+
+### Changed
+- `commands/setup-relationships.md`, `references/user-context.template.md` —
+  plugin-name and config-file references updated from `writing-style` to
+  `voice` (Nucleus Operating Model Refactor Phase 3 step 3.4).
+
 ## [0.2.7] — Follow-up privacy fix: MedBridge, sang-lee (2026-09-15)
 
 Caught in a second sweep after v0.2.5 shipped — a real prospect company name
