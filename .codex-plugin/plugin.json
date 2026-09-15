@@ -1,7 +1,7 @@
 {
   "name": "relationships",
-  "version": "0.3.4",
-  "description": "Build a daily relationship cockpit, rebalance a network, and create context-aware touchpoint drafts from shared identity, voice, and memory.",
+  "version": "0.3.5",
+  "description": "Build a daily relationship cockpit, research contacts, act on buying signals and referral opportunities, rebalance a network, and create context-aware touchpoint drafts.",
   "author": {
     "name": "BrightWay AI",
     "url": "https://brightwayai.com"
@@ -18,7 +18,7 @@
   "interface": {
     "displayName": "Relationships",
     "shortDescription": "Prioritize relationship actions and draft useful touchpoints",
-    "longDescription": "Build a daily relationship cockpit, rebalance a network, and create context-aware touchpoint drafts from shared identity, voice, and memory.",
+    "longDescription": "Build a daily relationship cockpit, research contacts, act on buying signals and referral opportunities, rebalance a network, and create context-aware touchpoint drafts.",
     "developerName": "BrightWay AI",
     "category": "Sales",
     "capabilities": [

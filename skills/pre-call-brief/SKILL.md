@@ -3,6 +3,16 @@ name: pre-call-brief
 description: "Generate a pre-call brief once a meeting is booked. Pulls everything known about the contact and company and produces contact snapshot, company snapshot, signal recap, talking points, likely objections, and a soft next-step."
 ---
 
+<!-- OPENAI-ADAPTER:START -->
+## OpenAI host binding
+
+Before acting, read `../../references/openai-portability.md`. That file translates
+host-specific tools, agents, artifacts, scheduling, connectors, and config-root
+access for ChatGPT and Codex. It overrides concrete Claude/Cowork tool names only;
+the workflow, safety gates, and output contract in this skill remain canonical.
+<!-- OPENAI-ADAPTER:END -->
+
+
 # pre-call-brief
 
 Read `../../references/openai-portability.md`, then read

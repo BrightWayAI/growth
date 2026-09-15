@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.5] — Codex adapter synchronization (2026-09-15)
+
+### Added
+- OpenAI host bindings for the absorbed buying-signal workflows.
+
+### Fixed
+- Updated the read-only `relationships-director` Codex binding and portability contract for its rank/research modes and native signal/referral configuration.
+
 ## [0.3.4] — claude plugin eval suite (2026-09-15)
 
 Nucleus Operating Model Refactor Phase 4 step 4.2.

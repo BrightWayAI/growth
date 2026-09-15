@@ -3,6 +3,16 @@ name: capture-signal
 description: "Manually capture a buying signal you spotted (LinkedIn post, comment, job change, etc.). Classifies the signal against the 7-signal taxonomy, scores it against the user's ICP, researches the contact across available connectors, and adds it to the active pipeline."
 ---
 
+<!-- OPENAI-ADAPTER:START -->
+## OpenAI host binding
+
+Before acting, read `../../references/openai-portability.md`. That file translates
+host-specific tools, agents, artifacts, scheduling, connectors, and config-root
+access for ChatGPT and Codex. It overrides concrete Claude/Cowork tool names only;
+the workflow, safety gates, and output contract in this skill remain canonical.
+<!-- OPENAI-ADAPTER:END -->
+
+
 # capture-signal
 
 Read `../../references/openai-portability.md`, then read

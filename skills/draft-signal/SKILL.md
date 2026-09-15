@@ -4,6 +4,16 @@ name: draft-signal
 description: "Draft the 3-touch DM sequence (opener + 2 follow-ups) for a captured signal, in the user's voice, with copy-paste-ready messages and timing."
 ---
 
+<!-- OPENAI-ADAPTER:START -->
+## OpenAI host binding
+
+Before acting, read `../../references/openai-portability.md`. That file translates
+host-specific tools, agents, artifacts, scheduling, connectors, and config-root
+access for ChatGPT and Codex. It overrides concrete Claude/Cowork tool names only;
+the workflow, safety gates, and output contract in this skill remain canonical.
+<!-- OPENAI-ADAPTER:END -->
+
+
 # draft-signal
 
 Read `../../references/openai-portability.md`, then read

@@ -52,7 +52,7 @@ redirected to another store.
 
 ## Plugin-specific degradation
 
-Cortex, CRM, mail, and research connectors enrich ranking but are optional. Run read-only role work inline when agents are unavailable. All outbound content remains a draft.
+Cortex, CRM, mail, calendar, Apollo, and research connectors enrich ranking but are optional. Run read-only role work inline when agents are unavailable, name skipped sources, and keep all outbound content as drafts.
 
 Always report unavailable or skipped capabilities in the result. A degraded run must
 remain useful where possible, but it must never imply that missing data was read or an

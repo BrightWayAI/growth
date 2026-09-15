@@ -4,6 +4,16 @@ name: warm-signal
 description: "Pre-DM warming sequence. Drafts a substantive comment for one of the contact's recent posts, identifies 2 more posts to like, and queues the DM for 24h later."
 ---
 
+<!-- OPENAI-ADAPTER:START -->
+## OpenAI host binding
+
+Before acting, read `../../references/openai-portability.md`. That file translates
+host-specific tools, agents, artifacts, scheduling, connectors, and config-root
+access for ChatGPT and Codex. It overrides concrete Claude/Cowork tool names only;
+the workflow, safety gates, and output contract in this skill remain canonical.
+<!-- OPENAI-ADAPTER:END -->
+
+
 # warm-signal
 
 Read `../../references/openai-portability.md`, then read

@@ -1,7 +1,7 @@
 ---
 disable-model-invocation: true
 name: setup-relationships
-description: "Configure the relationships plugin. Auto-imports identity, voice, ICP, CRM, Apollo, cooling rules, and banned phrases from peer plugin configs when they exist — so for full-stack Nucleus users this collapses to ~3 confirmations. For standalone installs (no peers), runs the full interview. Writes results to <config-root>/plugins/relationships.user-context.md. Re-run anytime to update."
+description: "Configure the relationships plugin. Auto-imports identity, voice, CRM, and banned phrases from peer plugin configs when they exist. ICP/Apollo/signal preferences and referral-connector/cooling rules are captured natively (absorbed from the retired lead-engine and referral-engine plugins, 2026-09-15) rather than imported. For full-stack Nucleus users this collapses to a handful of confirmations plus the native questions; standalone installs run the full interview. Writes results to <config-root>/plugins/relationships.user-context.md. Re-run anytime to update."
 ---
 
 # setup-relationships
