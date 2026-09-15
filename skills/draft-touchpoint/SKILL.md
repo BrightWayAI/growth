@@ -40,7 +40,7 @@ Respect the autonomy slider — in `auto` mode, skip the disambiguation prompt i
 
 If the user says "who should I reach out to today" — that's `/relationships`, not this skill. If the user names a specific person — that's this skill.
 
-## Routing for nucleus-router
+## Routing for /cos (chief-of-staff)
 
 Suggested intent rows to add:
 

@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.3.1] — nucleus-router routing docs updated (2026-09-15)
+
+### Changed
+- "Routing for nucleus-router" sections in `network-rebalance`, `touchpoint`,
+  `relationships`, `draft-touchpoint`, `relationships-action` skill docs
+  renamed to "Routing for /cos (chief-of-staff)" — `nucleus-router` was
+  retired in favor of a `chief-of-staff` agent in `core-ops` (Nucleus
+  Operating Model Refactor Phase 3 step 3.1). No behavior change.
+
 ## [0.3.0] — Absorbs lead-engine and referral-engine (2026-09-15)
 
 Nucleus Operating Model Refactor Phase 3 step 3.2. Both plugins retire; their

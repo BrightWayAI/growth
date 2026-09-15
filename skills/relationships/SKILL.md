@@ -33,9 +33,9 @@ This skill activates on phrases like:
 
 Respect the autonomy slider — in `auto` mode, skip confirmation and run directly.
 
-## Routing for nucleus-router
+## Routing for /cos (chief-of-staff)
 
-Suggested intent rows to add to `nucleus-router`:
+Suggested intent rows the chief-of-staff agent should recognize:
 
 | Utterance | Routes to |
 |---|---|

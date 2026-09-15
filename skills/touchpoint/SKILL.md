@@ -52,7 +52,7 @@ Respect autonomy slider:
 - For acting on a brief card → that's `/relationships-action`
 - For bulk relationship-tagging → that's `/network-rebalance`
 
-## Routing for nucleus-router
+## Routing for /cos (chief-of-staff)
 
 | Utterance | Routes to |
 |---|---|

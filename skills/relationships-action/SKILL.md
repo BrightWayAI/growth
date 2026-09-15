@@ -40,7 +40,7 @@ This skill activates on phrases like:
 
 Respect the autonomy slider — in `auto` mode, skip confirmation prompts when the resolution is unambiguous.
 
-## Routing for nucleus-router
+## Routing for /cos (chief-of-staff)
 
 Suggested intent rows:
 

@@ -1,6 +1,6 @@
 {
   "name": "relationships",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Build a daily relationship cockpit, rebalance a network, and create context-aware touchpoint drafts from shared identity, voice, and memory.",
   "author": {
     "name": "BrightWay AI",

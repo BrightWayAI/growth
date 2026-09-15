@@ -34,7 +34,7 @@ This skill activates on phrases like:
 
 Respect the autonomy slider — in `auto` mode, accept high-confidence proposals automatically; pause only on medium/low.
 
-## Routing for nucleus-router
+## Routing for /cos (chief-of-staff)
 
 Suggested intent rows to add:
 
