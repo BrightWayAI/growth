@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: relationships-action
 description: Natural-language entrypoint for recording an action on a relationships brief option. Fires when the user says "I sent that to Sarah," "snooze the Sam one for 3 days," "mark #1 done," "skip the second one," or similar. Resolves the referenced option from today's brief, then routes to /relationships-action with a structured event payload.
 ---

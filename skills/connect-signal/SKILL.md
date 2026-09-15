@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: connect-signal
 description: "Draft a LinkedIn connection-request note for a captured signal. Connection requests are shorter, peer-level, and intentionally don't reference the signal."
 ---

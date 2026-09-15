@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: warm-signal
 description: "Pre-DM warming sequence. Drafts a substantive comment for one of the contact's recent posts, identifies 2 more posts to like, and queues the DM for 24h later."
 ---

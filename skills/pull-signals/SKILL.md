@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: pull-signals
 description: "Pull fresh buying signals from Apollo for the user's ICP. Fetches job changes, funding events, and hiring signals (per the user's setup preferences), filters against the ICP, scores priority, and adds them to the pipeline. Use to refresh the pipeline at the start of a session. Requires the Apollo MCP to be connected."
 ---

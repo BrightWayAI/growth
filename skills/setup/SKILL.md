@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: setup
 description: Natural-language entrypoint for configuring the relationships plugin. Fires when the user says "set up relationships," "configure my network," "let's set up my relationships plugin," "I want to track my relationships," or similar. Confirms, then routes to /setup-relationships.
 ---

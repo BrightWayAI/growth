@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: draft-signal
 description: "Draft the 3-touch DM sequence (opener + 2 follow-ups) for a captured signal, in the user's voice, with copy-paste-ready messages and timing."
 ---

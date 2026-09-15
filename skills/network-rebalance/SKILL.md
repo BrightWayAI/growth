@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: network-rebalance
 description: Natural-language entrypoint for the quarterly network re-tagging walk. Fires when the user says "rebalance my network," "re-tag my contacts," "audit my tiers," "review my relationship tiers," or asks for the quarterly relationship review. Confirms, then routes to /network-rebalance.
 ---

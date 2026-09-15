@@ -1,7 +1,7 @@
 {
   "name": "relationships",
   "description": "Daily relationship cockpit. /relationships produces a prioritized 3-bucket brief (new business, relationship building, network expansion) with 3 actions per bucket — each one ships with a recommended channel, time estimate, and a copy-ready draft drawn from a template library. v0.2.0 adds the intent dimension (client_delivery / drive_active / door_opening / reciprocal / advising / content_share / keep_warm / passive_visibility / awaiting_reply) so the brief frames cards according to the dynamic of engagement, not just cadence. v0.3.0 (2026-09-15) absorbs lead-engine (Apollo signal pipeline: /pull-signals, /capture-signal, /connect-signal, /warm-signal, /draft-signal, /pre-call-brief) and referral-engine (referral-ask templates folded into /draft-touchpoint, connector cooling rules native to setup) — both plugins retired. v0.3.2 (2026-09-15) merges the relationship-ranker and contact-researcher agents into one mode-dispatched relationships-director agent. /setup-relationships captures ICP, signal sourcing, referral cooling, tier definitions, voices, and time-budget preferences natively. Builds on cortex person pages + voice + identity; delegates to pipeline-analyst when installed. Drafts only — never sends.",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "author": {
     "name": "BrightWay AI",
     "url": "https://brightwayai.com"
