@@ -1,6 +1,6 @@
 {
   "name": "growth",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Growth Engine. Build a daily relationship cockpit, research contacts, act on buying signals and referral opportunities, rebalance a network, create context-aware touchpoint drafts, and run CRM pipeline analysis and forecasting (pipeline-analyst, pipeline-forecast).",
   "author": {
     "name": "BrightWay AI",

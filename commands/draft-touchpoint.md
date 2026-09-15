@@ -17,7 +17,7 @@ Use cases:
 
 Read `<config-root>/plugins/growth.user-context.md`. If missing → route to `/setup-relationships` and stop.
 
-Read `<config-root>/memory/me/identity.md` and `<config-root>/memory/me/voice.md` (or named voice files if user has multiple).
+Read `<config-root>/memory/me/identity.md` and `<config-root>/memory/me/voice.md` (or named voice files if user has multiple). If `voice.md` doesn't exist, don't stop — draft in a generic tone and note in the response: "No voice file found — using generic tone; run comms's `/setup-voice` to fix this."
 
 ---
 

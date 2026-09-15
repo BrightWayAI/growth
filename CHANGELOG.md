@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.6.0] — `/setup-voice` ownership moves to Comms Desk (2026-09-15)
+
+### Changed
+- `commands/setup-relationships.md` updated to attribute `/setup-voice` to `comms` instead of `cortex`.
+- `commands/draft-touchpoint.md` Step 0 now degrades gracefully with an explicit "No voice file found — using generic tone; run comms's `/setup-voice` to fix this" message when `<config-root>/memory/me/voice.md` doesn't exist, instead of silently assuming it's present.
+
 ## [0.5.0] — pipeline-analyst and pipeline-forecast move here from ops (2026-09-15)
 
 ### Added
