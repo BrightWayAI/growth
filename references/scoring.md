@@ -57,7 +57,7 @@ This prevents "just sent a DM 5/28" people from getting the full operational 90-
 
 ### `trigger_factor`
 
-The presence + recency + relevance of an external signal. Signals come from `lead-engine` if installed; otherwise from CRM custom-property changes or manual flagging.
+The presence + recency + relevance of an external signal. Signals come from `/pull-signals`; otherwise from CRM custom-property changes or manual flagging.
 
 | Signal type | Base value | Recency decay |
 |---|---|---|
@@ -120,7 +120,7 @@ Subtracted from score. High values keep a contact out of the brief.
 - Touched within tier's minimum-gap window (defaults: inner 5d, strategic 10d, operational 30d) → penalty `1.0`
 - Touched within tier's recommended-gap window → penalty `0.5`
 - Marked do-not-engage in CRM or person page → penalty `1.0` (effectively excludes)
-- Inside an active-deal cooling window (referral-engine plugin enforces this) → penalty per its rules
+- Inside an active-deal cooling window (native referral-cooling rules enforce this) → penalty per its rules
 
 ## Intent-driven framing (v0.2.0+)
 

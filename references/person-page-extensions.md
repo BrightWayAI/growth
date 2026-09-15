@@ -194,8 +194,8 @@ User approves in batches (10-15 at a time). Idempotent — re-runnable.
 |---|---|---|
 | `/relationships` (this plugin) | all | `next_touch_target` (auto-maintained), `generosity_ledger` (when user logs giving), `## Recent interactions` append |
 | `/network-rebalance` (this plugin, Phase 3) | all | `tier`, `buckets`, `relationship_class`, `icp_fit` (proposed; user-approved) |
-| `contact-researcher` (lead-engine) | reads only | does not write these fields |
-| `referral-engine` | `tier`, `relationship_class`, `generosity_ledger` | may append to `generosity_ledger` on ask draft |
+| `contact-researcher` (bundled agent) | reads only | does not write these fields |
+| `/draft-touchpoint` (referral-ask) | `tier`, `relationship_class`, `generosity_ledger` | may append to `generosity_ledger` on ask draft |
 | cortex `/recall` | all (renders the section) | none |
 | cortex `/cleanup` | `tier` (uses for archive triggers) | may demote `tier` to `dormant` on inactivity |
 

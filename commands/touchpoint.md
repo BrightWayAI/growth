@@ -1,5 +1,5 @@
 ---
-description: Lightweight ad-hoc relationship logging from natural language. "I had a great catch-up with Sang, he's connecting me to two folks at NationSwell." Updates the person page's Recent Interactions log, sets Last meaningful contact, optionally appends a generosity_ledger entry, optionally proposes intent/tier shift if the touch signals a change. Drafts only — never sends. Lower friction than /relationships-action for the "I just did this and want to capture it" flow.
+description: Lightweight ad-hoc relationship logging from natural language. "I had a great catch-up with Sang, he's connecting me to two folks at NationSwell." Updates the person page's Recent Interactions log, sets Last meaningful contact, optionally appends a generosity_ledger entry, optionally proposes intent/tier shift if the touch signals a change. Drafts only — never sends. Lower friction than /relationships-action for the "I just did this and want to capture it" flow. Also handles signal-pipeline actions (`/touchpoint SIG-[id] sent|reply|booked|dead`), absorbed from the retired lead-engine plugin's /lead-log, 2026-09-15.
 ---
 
 # /touchpoint
@@ -54,11 +54,108 @@ Parse out:
 
 Skip parsing; use args directly.
 
+### B.1 — Signal-pipeline form (absorbed from lead-log, 2026-09-15)
+
+```
+/touchpoint SIG-[id] sent [1|2|3]
+/touchpoint SIG-[id] reply
+/touchpoint SIG-[id] booked
+/touchpoint SIG-[id] dead
+```
+
+If the first argument matches `SIG-[id]` (rather than a person slug), skip Steps 1-7 below entirely and jump to **Step 1B — Signal-pipeline actions**. This is a distinct data model (the Apollo/manual-capture signal pipeline at `<config-root>/relationships/pipeline.md`, not cortex person pages) that happens to share the same "record what happened" verb.
+
 ### C. Resolution failures
 
 - **No matching person page** — surface "No person page for '[name]' found. Want to (a) create a new page via cortex `/remember`, (b) confirm a different slug, (c) skip?" Don't silently no-op.
 - **Multiple matches** — list the candidates with last meaningful contact dates; user picks.
 - **Channel ambiguous and no fallback** — ask "What channel? (call / text / email / linkedin_dm / instagram_dm / comment / meet)"
+
+---
+
+## Step 1B — Signal-pipeline actions (absorbed from lead-log, 2026-09-15)
+
+Only reached via the `B.1` invocation form above. Read `<config-root>/plugins/relationships.user-context.md` (for CRM wiring + auto-log preference), `<config-root>/relationships/pipeline.md`, and `<config-root>/relationships/sent-log.md`.
+
+If the SIG-ID doesn't exist in the pipeline, say so and stop. If no SIG-ID is given, list `sent` and `replied` signals from the pipeline and ask which one.
+
+### Action: `sent [touch-num]`
+
+1. Ask the user (AskUserQuestion freeform): "Paste the actual message you sent. I'll log it verbatim so we can refine your voice over time."
+2. Append to `sent-log.md`:
+
+```markdown
+---
+
+## [YYYY-MM-DD HH:MM] — SIG-[id] — Touch [N]
+
+**Contact:** [name from pipeline]
+**Channel:** [LinkedIn DM / email / other — ask if not obvious]
+
+**Sent:**
+> [verbatim message]
+```
+
+3. Update the SIG entry in `pipeline.md`:
+   - Status: `drafted` → `sent`
+   - Cadence section: mark Touch [N] as `sent [date]`
+   - Update next-touch target date based on cadence interval from `relationships.user-context.md`
+4. If CRM is connected and auto-log = yes (or user confirms when set to "ask each time"):
+   - Find or create the contact in the CRM (use the email from the pipeline if known; otherwise create a contact with name + company + LinkedIn URL).
+   - Log a Note or Engagement on the contact: subject "Intent outbound — Touch [N] — [signal type]", body = the verbatim message.
+   - If contact is new: also set the lifecycle stage / pipeline stage from `relationships.user-context.md`.
+5. Confirm:
+
+```
+✅ Logged Touch [N] for SIG-[id]
+  Pipeline status: sent
+  Next touch due: [date] (Touch [N+1])
+  CRM: [logged to HubSpot/etc., or "skipped — not connected"]
+```
+
+### Action: `reply`
+
+1. Ask: "Paste their reply. I'll log it and help you draft a response."
+2. Append to `sent-log.md`:
+
+```markdown
+## [YYYY-MM-DD HH:MM] — SIG-[id] — Reply
+
+**Reply received:**
+> [verbatim reply]
+```
+
+3. Update the SIG status in `pipeline.md`: `sent` → `replied`. Pause cadence (clear future touch target dates).
+4. Read the reply and classify it: **Positive/interested**, **Question**, **Soft no/not now**, or **Hard no**.
+5. For positive/question replies: draft a short context-aware response in the user's voice. Output it for the user to send.
+6. For soft no: draft a graceful "totally fair, hit me up if [trigger]" response. Suggest setting a reminder for 60-90 days out.
+7. For hard no: don't draft a response. Suggest the user run `/touchpoint SIG-[id] dead` to close it.
+8. If CRM is connected, log the reply as a Note on the contact + update lifecycle stage if appropriate.
+
+### Action: `booked`
+
+1. Ask (AskUserQuestion): "When's the call? (date + time + meeting link if you have it)"
+2. Update `pipeline.md` status: → `booked`. Add the meeting details to the SIG entry's Notes.
+3. Append to `sent-log.md` a "Booked" entry.
+4. If CRM connected: update the contact's lifecycle/deal stage; optionally create a Deal record if the user's CRM supports it and they want one.
+5. Confirm with a small celebration line ("That's the model working. SIG-[id] → meeting in [N] days from signal capture.") and end with: "Generate the pre-call brief whenever you're ready: `/pre-call-brief SIG-[id]`."
+
+### Action: `dead`
+
+1. Ask (AskUserQuestion freeform, optional): "Quick reason this is dead? (one line — helps refine future ICP scoring. Skip if not worth the keystrokes.)"
+2. Update `pipeline.md` status: → `dead`. Append the reason to the Notes section if provided.
+3. Append a "Closed dead" entry to `sent-log.md` with the reason.
+4. If CRM connected, optionally update contact lifecycle to "Disqualified" or equivalent — only if the user's CRM has a sensible mapping.
+
+### Pattern recognition (light)
+
+After updating, one quick check across recent sent-log entries (last 14 days):
+- 3+ replies on a single signal type → mention it: "Worth weighting that higher in `/pull-signals`."
+- 5+ sends with 0 replies → mention it: "Either signal sourcing or message is off. Want to pause and review?"
+
+Keep to one line max, only when genuinely worth flagging.
+
+**Output should be short** — confirmation + next step. Don't summarize what you just did.
 
 ---
 

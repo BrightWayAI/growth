@@ -1,13 +1,13 @@
 ---
-description: Configure the relationships plugin. Auto-imports identity, voice, ICP, CRM, Apollo, cooling rules, and banned phrases from peer plugin configs when they exist — so for full-stack Nucleus users this collapses to ~3 confirmations. For standalone installs (no peers), runs the full interview. Writes results to <config-root>/plugins/relationships.user-context.md. Re-run anytime to update.
+description: Configure the relationships plugin. Auto-imports identity, voice, CRM, and banned phrases from peer plugin configs when they exist. ICP/Apollo/signal preferences and referral-connector/cooling rules are captured natively (absorbed from the retired lead-engine and referral-engine plugins, 2026-09-15) rather than imported. For full-stack Nucleus users this collapses to a handful of confirmations plus the native questions; standalone installs run the full interview. Writes results to <config-root>/plugins/relationships.user-context.md. Re-run anytime to update.
 ---
 
 # /setup-relationships
 
 Configure the plugin. The interview length depends on what's already in your `<config-root>/`:
 
-- **Full Nucleus stack** (cortex + lead-engine + core-ops + referral-engine installed): ~60 seconds. Pre-filled from peers; you confirm and answer the few relationships-unique questions.
-- **Standalone install**: ~5–10 minutes. Full interview.
+- **Full Nucleus stack** (cortex + core-ops installed): ~2–3 minutes. Identity/voice/CRM pre-filled from peers; ICP, Apollo, and referral-cooling questions are native to this plugin (absorbed from lead-engine and referral-engine, which retired into this plugin 2026-09-15).
+- **Standalone install**: ~10–12 minutes. Full interview, including the native ICP/Apollo/referral questions.
 
 Idempotent — re-running updates rather than restarts.
 
@@ -68,14 +68,9 @@ Source: `<config-root>/plugins/bizdev-outreach.user-context.md` `## Banned phras
 
 If the legacy bizdev-outreach file has voice-specific overrides (banned phrases, casual register), capture as a `business` voice block in addition to the primary voice. Note: the user can rename or split this in the confirmation step.
 
-### ICP (primary + secondary + out-of-ICP)
+### ICP (primary + secondary + out-of-ICP) — native as of 2026-09-15
 
-Source priority order:
-1. `<config-root>/plugins/lead-engine.user-context.md` `## ICP` section — most detailed (titles, org types, sizes, regions, maturity, problem framing).
-2. `<config-root>/plugins/weekly-outreach.user-context.md` `## ICP` section.
-3. `<config-root>/plugins/bizdev-outreach.user-context.md` `## Company / Target market` block.
-
-Take the most detailed available source. If multiple disagree, keep lead-engine's and flag the discrepancy in the confirmation step.
+This used to import from a separate `lead-engine` plugin; lead-engine retired into `relationships` and its ICP capture is now a native question in Step 2 (see "ICP & signal sourcing" below). For an existing install migrating from lead-engine, check for a legacy `<config-root>/plugins/lead-engine.user-context.md` `## ICP` section once and offer to carry it forward verbatim instead of re-asking. Also check the older legacy sources if lead-engine's file isn't present: `<config-root>/plugins/weekly-outreach.user-context.md` `## ICP` section, or `<config-root>/plugins/bizdev-outreach.user-context.md` `## Company / Target market` block.
 
 ### Current quarter focus + outcome target
 
@@ -95,18 +90,16 @@ Extract:
 - Custom property names (cadence_property, icp_fit_property, do_not_engage_property)
 - API tier notes if present (e.g., "Starter — no Sequences API")
 
-### Apollo + signal preferences
+### Apollo + signal preferences — native as of 2026-09-15
 
-Source: `<config-root>/plugins/lead-engine.user-context.md` (preferred) or `<config-root>/plugins/weekly-outreach.user-context.md` `## Apollo` section (legacy).
-Extract:
+Captured natively in Step 2 (see "ICP & signal sourcing" below), not imported. For an existing install migrating from lead-engine, check for `<config-root>/plugins/lead-engine.user-context.md`'s Apollo settings (or the older `<config-root>/plugins/weekly-outreach.user-context.md` `## Apollo` section) once and offer to carry them forward instead of re-asking:
 - Enabled? (Y/N)
 - Daily DM budget, weekly net-new cap
 - Signal priorities (job changes, funding, posts)
 
-### Referral cooling + connector taxonomy
+### Referral cooling + connector taxonomy — native as of 2026-09-15
 
-Source: `<config-root>/plugins/referral-engine.user-context.md`.
-Extract:
+Captured natively in Step 2 (see "Referral network" below), not imported. For an existing install migrating from referral-engine, check for `<config-root>/plugins/referral-engine.user-context.md` once and offer to carry it forward:
 - Connector taxonomy (relationship_type values that count as connector, lists, tags)
 - Quiet threshold (default 60 days)
 - Trigger patterns (positive moments, fiscal-year, seasonal, conference proximity)
@@ -116,13 +109,11 @@ Extract:
 
 Runtime-detect, do not ask:
 - `cortex`: `<config-root>/memory/` directory exists
-- `lead-engine`: `<config-root>/plugins/lead-engine.user-context.md` exists
 - `core-ops`: `<config-root>/plugins/core-ops.user-context.md` exists
-- `referral-engine`: `<config-root>/plugins/referral-engine.user-context.md` exists
 - `daily-brief`: `<config-root>/plugins/daily-brief.user-context.md` exists
 - `voice`: `<config-root>/plugins/voice.user-context.md` exists
 
-Mark each as installed/not. Used to decide whether to delegate to subagents like `contact-researcher` and `pipeline-analyst`.
+Mark each as installed/not. Used to decide whether to delegate to subagents like `pipeline-analyst`. (`contact-researcher` is bundled with this plugin as of 2026-09-15 — no longer a companion-detection case.)
 
 ---
 
@@ -145,17 +136,15 @@ Present the detected dictionary as a summary first:
 Detected from your existing config:
   Identity:           [name] · [company] · [one-liner]
   Primary voice:      [three words] · [sign-off]
-  Primary ICP:        [titles] @ [org types], [sizes]
-  Secondary ICP:      [...]
   CRM:                [tool] · [N custom properties]
-  Apollo:             [enabled? · caps]
-  Cooling rules:      [quiet threshold] · [ask cadence cap]
-  Companions:         cortex ✓ · lead-engine ✓ · core-ops ✓ · referral-engine ✓ · ...
+  Companions:         cortex ✓ · core-ops ✓ · daily-brief ✓ · voice ✓ · ...
 
 Look right? (y / fix / replay specific section)
 ```
 
 If the user says "fix" or names a section, walk that section in detail. Otherwise accept the detected values and move on.
+
+ICP, Apollo/signal preferences, and referral cooling rules are asked natively below — they're not part of the detected-peer summary since they no longer come from a separate plugin (see "ICP & signal sourcing" and "Referral network" below).
 
 ### Then ask the relationships-unique questions (these are NOT in any peer file)
 
@@ -186,7 +175,28 @@ One at a time, confirm before moving on. **Surface the default; ask only if user
 - Want to override? (e.g., prospecting-heavy = 1.5 new-biz, 0.8 others)
 - Most users say no. Skip unless they bring it up.
 
-That's it. For a full-stack user with peer files populated, you've asked 4 questions. For a standalone install, expand each peer-imported field into the full interview from the original v0.1.0 setup.
+**Q6 — ICP & signal sourcing (native, absorbed from lead-engine 2026-09-15)**
+
+If a legacy lead-engine ICP was detected (see Step 0.5 note above), present it and ask to confirm/edit rather than re-asking from scratch. Otherwise ask:
+
+1. **Target roles** — "Who's the buyer/champion you usually message? List 1-4 titles."
+2. **Industries** — "What industries/verticals? Or 'horizontal' if you sell across all."
+3. **Company size** — "Sweet-spot company size? (Headcount or revenue range.)"
+4. **Disqualifiers** — "Anything that auto-disqualifies a lead even if other signals look strong?"
+5. **Signal priorities** (multiSelect) — "Which of the 7 buying signals are highest priority for your ICP?" Choices: Engagement, Job change, Funding, Hiring, Growth/expansion, Tech-stack change, Direct intent. See `references/seven-signals.md` for the full taxonomy each signal maps to.
+6. **Custom signal** (optional) — anything not on that list that's a buying signal in this domain.
+7. **Apollo** — if the Apollo MCP is connected: "Default to (a) job changes only, (b) job changes + funding, or (c) all three?" Also capture: daily DM send budget (default 10-15) and follow-up cadence (3-7-14 / 5-10 / 7-14 / custom — see `/draft-signal` for how these map to Touch 1/2/3 timing).
+
+**Q7 — Referral network (native, absorbed from referral-engine 2026-09-15)**
+
+If a legacy referral-engine config was detected, present it and confirm/edit. Otherwise ask:
+
+1. **Connector taxonomy** — how do you tag connectors in your CRM? (CRM property, list membership, tag, or "past customers count automatically")
+2. **Quiet threshold** — days without contact before someone surfaces as a "going quiet" value-share opportunity. Default 60.
+3. **Trigger patterns** — which of the default triggers apply (positive-touch reply, project closed, publicly mentioned you, fiscal-year flip, conference season, funding/press) plus any custom ones.
+4. **Ask cadence cap** — how often is it OK to ask the same connector for a referral? Default 180 days (6 months).
+
+That's it. For a full-stack user with peer files populated plus Q6/Q7 answered, that's the whole interview. For a standalone install, expand each peer-imported field into the full interview from the original v0.1.0 setup.
 
 ---
 
@@ -194,15 +204,42 @@ That's it. For a full-stack user with peer files populated, you've asked 4 quest
 
 Populate `<config-root>/plugins/relationships.user-context.md`. See `references/user-context.template.md` for the slim canonical layout.
 
-The written file ONLY contains:
+The written file contains:
 - Identity (minimal — primary key for templates: name, first_name, company, one_liner)
 - Relationships preferences (tiers, buckets, close-personal, time budget, voices for network expansion, scoring overrides if any)
+- **ICP & signal sourcing** (Q6 answers — native, not peer-imported)
+- **Referral network config** (Q7 answers — native, not peer-imported)
 - Companion-plugin detection results (so /relationships knows what to delegate to)
-- Provenance notes (which fields came from which peer file)
+- Provenance notes (which fields came from which peer file, vs. answered natively)
 
-Identity, voice, ICP, CRM, Apollo, cooling rules are NOT written here — `/relationships` reads them live from their canonical peer files at runtime. This avoids duplication and keeps the truth in one place per concern.
+Identity, voice, and CRM are NOT written here — `/relationships` reads them live from their canonical peer files (cortex, core-ops) at runtime. ICP, Apollo/signal preferences, and referral cooling rules ARE written here — they're native to this plugin as of the 2026-09-15 lead-engine/referral-engine merge, not read from a peer.
 
-**Exception:** if a peer file is missing (standalone install), capture the equivalent fields in `relationships.user-context.md` under `## Standalone fallback` sections. The plugin can run without peers; it just stores its own copy.
+**Exception:** if the cortex/core-ops peer files are missing (standalone install), capture the equivalent identity/voice/CRM fields in `relationships.user-context.md` under `## Standalone fallback` sections. The plugin can run without peers; it just stores its own copy.
+
+### Initialize signal-pipeline files (if first run)
+
+If `<config-root>/relationships/pipeline.md` doesn't exist, create it:
+
+```markdown
+# Pipeline — Active Signals
+
+> Each entry: signal type, contact, captured date, status, next action date, last touch.
+> Status values: `new` → `drafted` → `sent` → `replied` → `booked` / `dead`.
+
+---
+
+(empty — capture your first signal with /capture-signal or /pull-signals)
+```
+
+If `<config-root>/relationships/sent-log.md` doesn't exist, create it:
+
+```markdown
+# Sent Log — DMs & Replies
+
+> Append-only log of every touch sent and reply received. Used by /relationships to compute follow-up timing.
+
+---
+```
 
 ---
 
@@ -211,7 +248,9 @@ Identity, voice, ICP, CRM, Apollo, cooling rules are NOT written here — `/rela
 Summarize what was written.
 
 Offer:
-> "Run `/network-rebalance` once to tag your existing cortex person pages with tier + bucket frontmatter. Then `/relationships` daily."
+> "Run `/network-rebalance` once to tag your existing cortex person pages with tier + bucket frontmatter. Then `/relationships` daily.
+>
+> Full command list: `/relationships` (daily brief) · `/draft-touchpoint` (per-contact draft, incl. referral asks) · `/touchpoint` (log what happened, incl. signal sends/replies/bookings) · `/pull-signals` (Apollo fetch) · `/capture-signal` (manual signal log) · `/connect-signal` · `/warm-signal` · `/draft-signal` (signal drafting cadence) · `/pre-call-brief` · `/network-rebalance`."
 
 ---
 

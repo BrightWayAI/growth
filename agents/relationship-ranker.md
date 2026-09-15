@@ -16,7 +16,7 @@ You inherit the parent session's tools. Expect these to be available; if a conne
 - **CRM** (HubSpot / Salesforce / Pipedrive / Attio) — for tier-property, ICP-fit-property, do-not-engage flags, deal stage, last-activity.
 - **Gmail / Outlook** — for last-touch recency on candidates not yet fully captured in cortex.
 - **WebSearch** — only if a candidate's `trigger_factor` needs verification of a recent signal and the cortex page is silent.
-- **Task** — to optionally delegate to `contact-researcher` (lead-engine) for thin-data candidates that would otherwise score Low confidence.
+- **Task** — to optionally delegate to `contact-researcher` (bundled agent) for thin-data candidates that would otherwise score Low confidence.
 
 If CRM is unavailable, fall back to cortex `Last meaningful contact` field on person pages for recency; surface degraded scoring in Confidence.
 
@@ -46,7 +46,7 @@ Cheapest sources first.
    - **icp_factor:** from frontmatter `relationships.icp_fit` if present; otherwise infer from user-context's primary/secondary ICP definition vs. candidate's title + company. `primary` → 1.0, `secondary` → 0.6, no match → 0.1.
    - **reciprocity_factor:** open WAITING:you tags on cortex page (high weight) + sum of last 5 generosity-ledger entries (`gave` = +1 → raises priority; `received` = -1 → lowers).
    - **goal_alignment_factor:** check cortex page's Linked entities for workstream links matching the user-context current quarter focus. Explicit link → 1.0. Inferred match (ICP + role + workstream topic overlap) → 0.5. Else → 0.0.
-   - **cooling_penalty:** if `Last meaningful contact` falls inside the tier's minimum-gap window (inner 5d, strategic 10d, operational 30d — overrideable in user-context), apply 1.0. If do-not-engage tag in CRM or cortex → 1.0 (effectively excludes). Active-deal-cooling lookups via `referral-engine` rules if installed.
+   - **cooling_penalty:** if `Last meaningful contact` falls inside the tier's minimum-gap window (inner 5d, strategic 10d, operational 30d — overrideable in user-context), apply 1.0. If do-not-engage tag in CRM or cortex → 1.0 (effectively excludes). Active-deal-cooling lookups via the native referral-cooling rules in relationships.user-context.md.
 
 4. **Compute scores** using the formula in `references/scoring.md`. Defaults: `w_decay 0.30`, `w_trigger 0.25`, `w_icp 0.20`, `w_reciprocity 0.15`, `w_goal 0.10`, `w_penalty 0.40`. Honor any per-bucket weight overrides from user-context.
 

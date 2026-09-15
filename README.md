@@ -22,7 +22,7 @@ Each bucket gives you **3 options**. Each option ships with a **recommended chan
 A weighted score per contact:
 
 - **Cadence decay** — how overdue against the tier's target frequency
-- **External triggers** — job change, funding, content posted (via `lead-engine` signals when available)
+- **External triggers** — job change, funding, content posted (via `/pull-signals`)
 - **ICP fit** — alignment with the focus you set in setup
 - **Reciprocity debt** — open loops, especially WAITING-you items
 - **Quarterly goal alignment** — what you said matters this quarter
@@ -33,12 +33,12 @@ Each surfaced contact gets a channel recommendation (based on relationship class
 
 ## Companion plugins
 
+Signal sourcing (Apollo/ICP/7-signal taxonomy), the `contact-researcher` deep-dive agent, and referral-network cooling rules are bundled directly in this plugin as of 2026-09-15 (absorbed from the retired lead-engine and referral-engine plugins) — no separate install needed for those.
+
 Works standalone, but smarter with:
 
 - **cortex** — person pages, voice, identity, hot cache, workstream nodes
-- **lead-engine** — `contact-researcher` for deep dives; signal taxonomy
 - **core-ops** — `pipeline-analyst` for new-business ranking
-- **referral-engine** — warm-network activation triggers, ask drafting
 - **daily-brief** — pairs with `/brief` as the morning surface
 
 If a companion is missing, the plugin degrades gracefully — no required dependency beyond cortex foundation files.

@@ -1,5 +1,47 @@
 # Changelog
 
+## [0.3.0] — Absorbs lead-engine and referral-engine (2026-09-15)
+
+Nucleus Operating Model Refactor Phase 3 step 3.2. Both plugins retire; their
+functionality merges into `relationships` (already treated them as config
+peers before this — this makes the dependency native instead of optional).
+
+### Added
+- `contact-researcher` agent (moved from lead-engine, updated for the new
+  namespace) + matching `.codex/agents/contact-researcher.toml` role binding.
+- Six new commands, ported from lead-engine's signal-cadence commands (kept
+  separate rather than collapsed into one flagged command, to preserve the
+  real per-touch nuance — warming decision tree, 3 connection-request
+  patterns, per-touch DM rules, quality gates):
+  `/pull-signals` (was `/lead-pull`), `/capture-signal` (`/lead-capture`),
+  `/connect-signal` (`/lead-connect`), `/warm-signal` (`/lead-warm`),
+  `/draft-signal` (`/lead-draft`), `/pre-call-brief` (`/lead-brief`). Each has
+  a matching `skills/<name>/SKILL.md` OpenAI-adapter wrapper.
+- `references/seven-signals.md`, `references/signal-voice-rules.md`,
+  `references/signal-methodology.md` — moved from lead-engine, paths updated.
+- `references/templates/referral-ask/` — the 4 referral-ask templates from
+  referral-engine (post-positive-touch, post-project, re-warm, trigger-based),
+  now selectable from `/draft-touchpoint`'s intent menu (option e).
+
+### Changed
+- `/touchpoint` now also handles the signal-pipeline action form
+  (`/touchpoint SIG-[id] sent|reply|booked|dead`), absorbed from lead-engine's
+  `/lead-log` — same "record what happened" verb, one command.
+- `/relationships` Bucket A inlines lead-pipeline's overdue/reply-ready
+  signal-pipeline logic instead of an optional `lead-engine`-installed
+  delegation. Bucket B/C inline referral-engine's `/referrals` weekly-digest
+  classification (high-leverage asks, going-quiet value-shares, approaching
+  triggers) the same way.
+- `/setup-relationships` captures ICP, signal preferences, Apollo config, and
+  referral cooling rules **natively** now (Q6/Q7) instead of importing them
+  from `lead-engine.user-context.md` / `referral-engine.user-context.md` peer
+  files, since those plugins no longer exist. Existing installs get a
+  one-time carry-forward of their legacy values instead of being re-asked.
+- `relationships.user-context.md`'s real config (Zach's) was migrated:
+  lead-engine's ICP/Apollo/signal-priority answers and referral-engine's
+  connector-taxonomy/cooling-rule answers are now native content in this
+  file; the two legacy config files were archived, not deleted.
+
 ## [0.2.8] — writing-style renamed to voice (2026-09-15)
 
 ### Changed

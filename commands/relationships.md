@@ -146,10 +146,12 @@ Candidate pool:
 - CRM contacts associated with open deals (read-only)
 - Apollo net-new prospects (if Apollo enabled and the weekly cap hasn't been hit; cap from user-context)
 - Optional: contacts tagged ICP-fit `primary` or `secondary` in CRM but not in cortex yet
+- **Active signal-pipeline entries** (absorbed from lead-engine's `/lead-pipeline`, 2026-09-15) — every non-terminal entry in `<config-root>/relationships/pipeline.md`. For each, compute overdue-ness the same way `/lead-pipeline` did: last-touch date from `<config-root>/relationships/sent-log.md`, next-touch-due from the cadence interval in `relationships.user-context.md`, and flag `overdue: true` if `days_since_last_touch > cadence_interval` and status is `sent` (not `replied`/`booked`/`dead`). Reply-ready signals (`status: replied`, no follow-up sent) get the same top-of-bucket priority `/lead-pipeline` gave them — surface these above everything else in the bucket, even above fresh `new_biz` person-page candidates.
+- Cap total signal-pipeline entries surfaced in this bucket at the daily DM budget from `relationships.user-context.md` (same cap `/lead-pipeline` enforced) — the rest stay in the pipeline for tomorrow, don't force them into today's 3 slots.
 
 **If `pipeline-analyst` (core-ops) is installed:** delegate the ranking via Task tool with `subagent_type="pipeline-analyst"`. Pass the user-context path, 90d time window, focus filter "active deals + tier-A overdue + ICP-fit candidates," and `top-n=10` (we only show 3, but get a deeper list to filter).
 
-Apply scoring. Keep the top candidates.
+Apply scoring. Keep the top candidates. For a full standalone "everything active" view of the signal pipeline beyond what fits in today's 3 slots, the user can still ask "what's in my pipeline" — render the same grouped view `/lead-pipeline` used to (🔥 Reply-ready / 📬 Send today / 🟡 Active-waiting / 📥 New-not-drafted / 🪦 Recently closed / 🌡️ Warming-or-awaiting-connection) rather than a separate command.
 
 ### Bucket B — Relationship Building
 
@@ -158,17 +160,18 @@ Candidate pool:
 - Default `tier: inner` or `tier: strategic` people whose `next_touch_target` has passed
 - People with WAITING:you open loops on their person page
 - If close-personal track is enabled: people with `relationship_class: personal` and overdue cadence (separate sub-bucket)
-
-**If `referral-engine` is installed:** delegate warm-network ask candidates via its scoring rules (cooling periods, positive-moment triggers, fiscal-year triggers) for any tier-strategic+ people.
+- **High-leverage referral moments** (absorbed from referral-engine's `/referrals` weekly digest, 2026-09-15) — for tier-strategic+ people tagged as connectors (per the connector taxonomy in `relationships.user-context.md`), apply the same Bucket-B classification `/referrals` used: a connector with a recent positive moment in the last 14 days (replied warmly, a referred project closed, publicly mentioned you, referred someone recently) is a **gold** high-leverage ask window — surface these with priority. Honor the ask-cadence cap (default 180 days) and quiet threshold (default 60 days) from user-context — never surface a connector inside their cooling window.
 
 Apply scoring. Keep top.
 
 ### Bucket C — Network Expansion
 
-Candidate pool (three types — surface a mix):
-- **Engagement actions** — LinkedIn comment opportunities on contacts' recent posts (signals from `lead-engine` if installed), pipeline of "people whose content you actively engage with" from user-context
+Candidate pool (four types — surface a mix):
+- **Engagement actions** — LinkedIn comment opportunities on contacts' recent posts (from Apollo pulls via `/pull-signals`), pipeline of "people whose content you actively engage with" from user-context
 - **Content posting prompts** — for each named voice, a topic suggestion drawn from cortex recent insights, DECISION entries, or workstream activity. Match topic to voice's surface (e.g., business voice → operational AI on the BrightWay page; personal voice → broader AI thought leadership)
 - **Events / conferences / meetups** — Phase 1 surfaces manual entries from user-context only. Phase 5 will add Eventbrite/Luma/Meetup APIs and AI web search.
+- **Going-quiet value-share opportunities** (absorbed from `/referrals`, 2026-09-15) — connectors whose `last_meaningful_contact` exceeds the quiet threshold (default 60 days), with no upcoming meeting and no recent activity. Suggested action is a value-share (relevant article/framework/intro), not a direct ask — these are warmth-maintenance, not referral asks (those live in Bucket B).
+- **Approaching triggers** (absorbed from `/referrals`) — connectors near a fiscal-year boundary, conference season, or budget cycle per the trigger patterns configured in `relationships.user-context.md`.
 
 Apply scoring. Keep top.
 

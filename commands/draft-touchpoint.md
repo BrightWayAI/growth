@@ -73,9 +73,21 @@ Run a short interactive disambiguation:
 > - **b) React to a signal** — she posted/funded/changed roles (you tell me what)
 > - **c) Follow-up** — there's an open thread (last waiting: WAITING:you on intro request from 2026-05-10)
 > - **d) Cold-but-warm** — I'll go with a general thoughtful touch
-> - **e) Something else** — you tell me"
+> - **e) Referral ask** — she's tagged as a connector; ask for an intro to her network
+> - **f) Something else** — you tell me"
 
 If only one signal is fresh and obvious (e.g., a clear WAITING:you item with a date), skip the disambiguation and proceed with it, telling the user "Drafting follow-up on the intro request you owed her (waiting since 2026-05-10) — say if you want a different angle."
+
+### Referral-ask sub-shape (option e, absorbed from referral-engine's `/referral-ask`, 2026-09-15)
+
+If the contact is tagged as a connector (per the connector taxonomy in `relationships.user-context.md`), option (e) routes to `references/templates/referral-ask/README.md` instead of the standard channel/template flow. Pick the ask shape based on context, same logic `/referral-ask` used:
+
+- **Post-positive-touch** — they just did something positive (replied warmly, sent a glowing note, mentioned you publicly, made an intro).
+- **Post-project** — a project just closed (theirs or another client they referred).
+- **Re-warm + ask** — they've gone quiet (60+ days) but were warm before; lead with value, ask as a soft afterthought.
+- **Trigger-based** — fiscal year, conference, or budget cycle approaching.
+
+**Cooling check (hard gate, not a warning):** if `relationships.user-context.md`'s ask-cadence cap (default 180 days) hasn't cleared since this connector was last asked, refuse to draft a referral ask and say so: "Cooling — last asked [date]. Want a value-share touch instead?" This is stricter than the general cooling-period *warning* in Step 6 below — referral asks inside the cooling window don't get drafted at all, they get redirected to a value-share draft.
 
 ---
 
@@ -181,6 +193,7 @@ If the draft has `needs_user_touch: true`, also surface:
   <today> — <channel> — draft-touchpoint sent — <intent summary>
   ```
   Update `Last meaningful contact` in Relationship if appropriate. Update HubSpot contact's `last_activity_date` only if the user explicitly confirms CRM write.
+  **If this was a referral ask,** also append a `[YYYY-MM-DD] Referral ask sent — shape: <type>, why-now: <trigger>` line so the ask-cadence cap in Step 3's cooling check has something to read next time (prevents double-asking within cadence).
 - **Snooze** — append to `<config-root>/memory/staged/skip-logs/touchpoint-snooze.md` with `<slug>` + reason + resurface-after date. The daily brief will respect this.
 
 ---
@@ -208,7 +221,7 @@ If cortex `log-writer` skill is available, append to `<config-root>/memory/log.m
 
 ## Edge cases
 
-- **Contact has no cortex page.** Offer to delegate to `contact-researcher` (lead-engine) first — generates a dossier AND seeds a person page. User can decline; the command still drafts with the data available.
+- **Contact has no cortex page.** Offer to delegate to `contact-researcher` (bundled agent) first — generates a dossier AND seeds a person page. User can decline; the command still drafts with the data available.
 - **Contact has frontmatter `tier: dormant`.** Surface a soft warning: "Sarah is tier=dormant — typically not surfaced in daily briefs. Drafting anyway, but consider whether re-engaging is intentional."
 - **Contact has DNE flag** in cortex or CRM. Refuse to draft. Surface: "Sarah is marked do-not-engage. If this is wrong, edit the person page or CRM first; otherwise, this command won't draft."
 - **User passes a channel that's incompatible** (e.g., "draft a phone call to a cold prospect"). Push back once: "Phone calls work for warm contacts. For cold ICP, LinkedIn DM or email is the default. Override anyway?" If yes, draft accordingly.
