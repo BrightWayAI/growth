@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.2.5] — Genericize hardcoded proprietary examples (2026-09-15)
+
+Nucleus Operating Model Refactor privacy audit: reference docs and command
+examples hardcoded real BrightWay client/contact data (real names, a real
+company, a real current-quarter strategic target, real contract terms).
+Since this plugin is MIT-licensed and public, that data shipped to every
+Nucleus user. All examples replaced with fictional placeholders — no
+functional/schema change.
+
+### Fixed
+- `references/today-json-schema.md` — schema example no longer hardcodes
+  "Zach Wagner" / "BrightWay AI" / the real "Studio K-12 anchors" quarter
+  target.
+- `references/scoring.md` — same quarter-target example genericized.
+- `references/person-page-extensions.md` — intent-type examples no longer
+  name real contacts (Sang Lee, Rob Buelow, Jennifer Ives, etc.) or a real
+  contract figure ("$7K engagement, 35–40 hrs").
+- `commands/touchpoint.md`, `commands/draft-touchpoint.md`,
+  `commands/network-rebalance.md`, `commands/relationships-action.md`,
+  `skills/relationships-action/SKILL.md`, `skills/draft-touchpoint/SKILL.md`
+  — example output/prompts no longer name real contacts or clients (Sang Lee,
+  Derek/Holt, MedBridge).
+
 ## [0.2.4] — OpenAI host adapter (2026-09-14)
 
 ### Added

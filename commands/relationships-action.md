@@ -8,7 +8,7 @@ The action endpoint. Invoked when the user (or a UI on the user's behalf) takes 
 
 ## When to use
 
-- **Inline** — user says "I sent that to Sarah" or "snooze the Derek one for 3 days" mid-conversation. Skill detects, invokes this command.
+- **Inline** — user says "I sent that to Sarah" or "snooze the Sam one for 3 days" mid-conversation. Skill detects, invokes this command.
 - **From a UI** — a future Next.js / Operator app calls this command (via a sync daemon, CLI subprocess, or direct file write that this command can also consume) when the user taps Copy / Sent / Skip / Snooze on a card.
 - **From a CLI script** — for users who want to log actions outside of an interactive session.
 

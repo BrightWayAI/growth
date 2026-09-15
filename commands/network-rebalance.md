@@ -193,9 +193,9 @@ Present batches of **10-15 candidates at a time**. Format for fast scanning:
 REBALANCE BATCH 1 of N
 
 ────────────────────────────────────────────────────────
-1. Sarah Chen — Head of Content, MedBridge
+1. Sarah Chen — Head of Content, Vantage Health
    Existing: temp=Active, last contact 2026-05-12 (email), interactions=4/30d
-   Linked: [[workstream/studio-icp-pipeline]], [[client/holt]]
+   Linked: [[workstream/studio-icp-pipeline]], [[client/acme-corp]]
 
    PROPOSED FRONTMATTER:
      tier: strategic              [reason: workstream link + 4 interactions in 30d]
@@ -209,7 +209,7 @@ REBALANCE BATCH 1 of N
    Notes: ___________________________
 
 ────────────────────────────────────────────────────────
-2. Derek Patel — VP Production, Holt
+2. Sam Patel — VP Production, Acme Corp
    ...
 ────────────────────────────────────────────────────────
 ```
@@ -278,7 +278,7 @@ If you detect a `.swp` or lockfile, skip with a warning. The user can re-run aft
 
 ### Edge case — name collision detected
 
-If two pages would slug to the same name (per cortex v4.10 wikilink convention), pause: "Two pages slug to `sarah-chen` — `sarah-chen.md` (MedBridge) and `sarah-chen-acme.md` (Acme). Continue tagging both separately?" Yes proceeds; no skips both.
+If two pages would slug to the same name (per cortex v4.10 wikilink convention), pause: "Two pages slug to `sarah-chen` — `sarah-chen.md` (Vantage Health) and `sarah-chen-acme.md` (Acme). Continue tagging both separately?" Yes proceeds; no skips both.
 
 ---
 

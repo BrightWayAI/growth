@@ -1,6 +1,6 @@
 ---
 name: relationships-action
-description: Natural-language entrypoint for recording an action on a relationships brief option. Fires when the user says "I sent that to Sarah," "snooze the Derek one for 3 days," "mark #1 done," "skip the second one," or similar. Resolves the referenced option from today's brief, then routes to /relationships-action with a structured event payload.
+description: Natural-language entrypoint for recording an action on a relationships brief option. Fires when the user says "I sent that to Sarah," "snooze the Sam one for 3 days," "mark #1 done," "skip the second one," or similar. Resolves the referenced option from today's brief, then routes to /relationships-action with a structured event payload.
 ---
 
 <!-- OPENAI-ADAPTER:START -->
@@ -20,7 +20,7 @@ This skill activates on phrases like:
 - "I sent that to [name]" / "sent the [name] one"
 - "mark [name] done" / "mark #1 done" / "done with #2"
 - "skip the [bucket] [rank]" / "skip [name]"
-- "snooze [name] for [duration]" / "snooze the Derek one a week"
+- "snooze [name] for [duration]" / "snooze the Sam one a week"
 - "I copied the Sarah draft"
 
 ## Behavior

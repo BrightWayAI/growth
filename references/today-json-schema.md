@@ -19,15 +19,15 @@ Current schema version: **`0.1.0`**.
   "brief_id": "550e8400-e29b-41d4-a716-446655440000",
   "generated_at": "2026-05-28T07:30:00-04:00",
   "user": {
-    "name": "Zach Wagner",
-    "first_name": "Zach",
-    "company": "BrightWay AI",
-    "one_liner": "AI-powered pre-production infrastructure for educational video at scale"
+    "name": "Jane Doe",
+    "first_name": "Jane",
+    "company": "Acme Consulting",
+    "one_liner": "AI-powered workflow automation for professional services"
   },
   "budget_minutes": 30,
   "budget_mode": "default | variable | override",
-  "quarter_focus": "Studio K-12 anchors",
-  "quarter_target": "2 Phase-1 anchors signed",
+  "quarter_focus": "Q3 anchor accounts",
+  "quarter_target": "2 Phase-1 anchors signed and onboarded",
   "buckets": [
     { /* see Bucket shape */ }
   ],

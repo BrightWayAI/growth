@@ -105,7 +105,7 @@ reciprocity_factor = 0.6 × waiting_you_factor + 0.4 × generosity_balance
 
 ### `goal_alignment_factor`
 
-If user-context specifies a current quarter focus (e.g., "Studio K-12 anchors"), score each candidate's alignment:
+If user-context specifies a current quarter focus (e.g., "Q3 anchor accounts"), score each candidate's alignment:
 
 - Person page explicitly tagged with the focus topic/workstream → 1.0
 - Inferred match (ICP + role + recency overlap with focus) → 0.5

@@ -8,7 +8,7 @@ Per-contact on-demand drafting. Lighter than `/relationships` — no scoring, no
 
 Use cases:
 - "Draft something to Sarah Chen about her funding news."
-- "I want to follow up with Derek on the Holt Phase 2 talks."
+- "I want to follow up with Sam on the Acme Corp Phase 2 talks."
 - "Write me a check-in to my brother."
 
 ---
@@ -62,7 +62,7 @@ Two paths:
 
 ### A — User specified intent explicitly
 
-If the user's prompt included intent ("about her funding news" / "to follow up on Holt Phase 2" / "just check in"), use that as the **`trigger.summary`** and **`trigger.type`**.
+If the user's prompt included intent ("about her funding news" / "to follow up on Acme Corp Phase 2" / "just check in"), use that as the **`trigger.summary`** and **`trigger.type`**.
 
 ### B — User didn't specify; you infer
 
@@ -150,14 +150,14 @@ WHY NOW
 DRAFT
 ─────────────────────────────────────────────────────────
 Sarah — overdue for a real catch-up. Last we talked, you'd
-asked about an intro to the Holt team. I've been sitting
-on it longer than I should — Derek there is the right
+asked about an intro to the Acme Corp team. I've been sitting
+on it longer than I should — Sam there is the right
 person; want me to set it up this week?
 
 No pressure to volley back immediately — also happy with
 a "still cooking, ping me in a month."
 
-—Zach
+—Jane
 ─────────────────────────────────────────────────────────
 
 [ Copy ]  [ Edit & redraft ]  [ Different channel ]  [ Different template ]
@@ -197,7 +197,7 @@ If cortex `log-writer` skill is available, append to `<config-root>/memory/log.m
 
 ## Behavior rules
 
-- **Single contact per invocation.** If the user names multiple ("draft to Sarah and Derek"), run twice — don't batch in one draft.
+- **Single contact per invocation.** If the user names multiple ("draft to Sarah and Sam"), run twice — don't batch in one draft.
 - **Drafts only.** Never send. Mark-sent updates cortex but doesn't actually transmit anything.
 - **Voice-faithful.** Always use the right voice (primary vs personal vs business). Banned phrases enforced.
 - **Honest about thin data.** If the cortex page is sparse or net-new, the draft will be generic. Tell the user.

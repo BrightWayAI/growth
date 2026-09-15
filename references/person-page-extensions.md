@@ -56,16 +56,16 @@ For new-business weighting. `primary` matches the user-context primary ICP defin
 Specifies the **dynamic of how you engage** with this person. Distinct from tier (cadence + drive level) — intent encodes the texture of engagement within that cadence.
 
 **Active-drive intents** (compatible with inner / strategic tiers):
-- `client_delivery` — active client engagement; cadence is delivery-driven (Tom, Charity, Kim)
+- `client_delivery` — active client engagement; cadence is delivery-driven (Marcus, Priya, Renee)
 - `drive_active` — actively driving a relationship goal (deal, deepening, specific ask in flight)
 - `door_opening` — they connect you to other people; cadence is about staying useful + visible
-- `reciprocal` — mutual referral / match the energy (Jennifer Ives)
-- `advising` — asymmetric help; they've offered counsel and you should use it intentionally (Sang Lee)
-- `content_share` — pure-give cadence; share tools/practices/frameworks with no quid pro quo (Rob Buelow post-Vector)
+- `reciprocal` — mutual referral / match the energy (Jordan Cole)
+- `advising` — asymmetric help; they've offered counsel and you should use it intentionally (Taylor Diaz)
+- `content_share` — pure-give cadence; share tools/practices/frameworks with no quid pro quo (Alex Rivera post-Nova)
 
 **Passive intents** (compatible with operational / dormant tiers):
-- `keep_warm` — quiet maintenance; surface only on triggers (Lauren Little, Caitlyn, Catherine)
-- `passive_visibility` — `[network]`-bucket only; engage with their content, never direct outreach (Jonathan Harms)
+- `keep_warm` — quiet maintenance; surface only on triggers (Casey Little, Dana, Elena)
+- `passive_visibility` — `[network]`-bucket only; engage with their content, never direct outreach (Chris Harms)
 - `awaiting_reply` — just sent outreach; waiting on response. Transient state — re-tier and re-intent once reply lands or window closes.
 
 **Constraint:** not every (tier × intent) combination is valid. Strategic + passive_visibility is a contradiction. The daily brief and `/network-rebalance` validate combinations and prompt the user to reconcile if invalid.
@@ -76,7 +76,7 @@ Specifies the **dynamic of how you engage** with this person. Distinct from tier
 
 Overrides the tier's default cadence in days for this specific person. Use when a person fits a tier conceptually but wants a different cadence than the tier default.
 
-Example: Lauren Little is operational by intuition (no active pursuit) but you want to touch base every 60 days instead of the 90-day default. Set `cadence_days_override: 60`.
+Example: Casey Little is operational by intuition (no active pursuit) but you want to touch base every 60 days instead of the 90-day default. Set `cadence_days_override: 60`.
 
 Leave null for the tier default. Most people won't have this set.
 
@@ -114,15 +114,15 @@ A test: if removing the person from your network entirely would make the note ob
 
 Examples that belong here:
 - "Long-time personal friend AND explicit advisor. Has stated he wants to help."
-- "Style: warm, casual, short. -Zach sign-off."
+- "Style: warm, casual, short. -Jane sign-off."
 - "Pattern: commits to intros and doesn't follow through. Drive next steps directly."
-- "Origin: Sang Lee intro Aug 2025."
-- "Don't position her as a go-between for the Sylvia relationship."
+- "Origin: Taylor Diaz intro Aug 2025."
+- "Don't position her as a go-between for the Morgan relationship."
 
 Examples that DON'T belong here (move to client/bizdev node):
-- "Architecture doc M1 drafted — WAITING:Kim sign-off"
-- "$7K engagement, 35–40 hrs"
-- "Youth Inc subcontract opportunity surfaced 5/18"
+- "Architecture doc M1 drafted — WAITING:Renee sign-off"
+- "$9K engagement, 25–30 hrs"
+- "Bright Futures Inc subcontract opportunity surfaced 5/18"
 
 ---
 

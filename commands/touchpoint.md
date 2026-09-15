@@ -200,11 +200,11 @@ Invoke `log-writer` if available:
 Render confirmation:
 
 ```
-✓ Touchpoint logged for Sang Lee (call, today).
+✓ Touchpoint logged for Taylor Diaz (call, today).
   Updated: Recent Interactions, Last meaningful contact, next_touch_target.
   Events log: 1 entry appended.
 
-  Pattern: Sang's intent was `advising` (compatible with the touchpoint).
+  Pattern: Taylor's intent was `advising` (compatible with the touchpoint).
   No shift suggested.
 ```
 

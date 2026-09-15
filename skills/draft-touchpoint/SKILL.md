@@ -18,7 +18,7 @@ the workflow, safety gates, and output contract in this skill remain canonical.
 This skill activates on phrases like:
 
 - "draft a message to Sarah"
-- "help me follow up with Derek"
+- "help me follow up with Sam"
 - "write something to my brother"
 - "what should I say to [name]"
 - "draft a LinkedIn DM to [name]"
