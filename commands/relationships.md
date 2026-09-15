@@ -1,5 +1,5 @@
 ---
-description: Produce today's relationship brief — 3 buckets (new business / relationship building / network expansion), 3 options each, with recommended channel, time estimate, and copy-ready draft per option. Drafts only — never sends. Respects time-budget filtering, persistent snoozes, and tier-based cadence rules. Reads from cortex person pages, CRM, calendar, inbox; delegates to contact-researcher and pipeline-analyst when installed. Writes a structured `today.json` artifact for downstream UI consumers and appends to a persistent events log on user actions.
+description: Produce today's relationship brief — 3 buckets (new business / relationship building / network expansion), 3 options each, with recommended channel, time estimate, and copy-ready draft per option. Drafts only — never sends. Respects time-budget filtering, persistent snoozes, and tier-based cadence rules. Reads from cortex person pages, CRM, calendar, inbox; delegates to relationships-director (rank/research modes) and pipeline-analyst when installed. Writes a structured `today.json` artifact for downstream UI consumers and appends to a persistent events log on user actions.
 ---
 
 # /relationships

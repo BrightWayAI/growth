@@ -30,7 +30,7 @@ Parse the user's input. Strategies in priority order:
 3. **Partial name** (`/draft-touchpoint Sarah`) — search cortex `memory/index.md` and recent `hot.md` mentions. Surface all matches, ask user to disambiguate.
 4. **Contextual reference** ("the person I was just talking about," "him") — read recent conversation context. If unambiguous, use that person. If ambiguous, ask.
 5. **No cortex page but CRM record exists** — pull the HubSpot record by name match. The card will be marked `research_thin: true`.
-6. **Net-new (no cortex, no CRM)** — accept name + company + email; the command works with just that, but flags Confidence Low and recommends running `contact-researcher` first.
+6. **Net-new (no cortex, no CRM)** — accept name + company + email; the command works with just that, but flags Confidence Low and recommends running `relationships-director` (mode: research) first.
 
 If multiple matches, present them and ask which:
 
@@ -221,7 +221,7 @@ If cortex `log-writer` skill is available, append to `<config-root>/memory/log.m
 
 ## Edge cases
 
-- **Contact has no cortex page.** Offer to delegate to `contact-researcher` (bundled agent) first — generates a dossier AND seeds a person page. User can decline; the command still drafts with the data available.
+- **Contact has no cortex page.** Offer to delegate to `relationships-director` (mode: research, bundled agent) first — generates a dossier AND seeds a person page. User can decline; the command still drafts with the data available.
 - **Contact has frontmatter `tier: dormant`.** Surface a soft warning: "Sarah is tier=dormant — typically not surfaced in daily briefs. Drafting anyway, but consider whether re-engaging is intentional."
 - **Contact has DNE flag** in cortex or CRM. Refuse to draft. Surface: "Sarah is marked do-not-engage. If this is wrong, edit the person page or CRM first; otherwise, this command won't draft."
 - **User passes a channel that's incompatible** (e.g., "draft a phone call to a cold prospect"). Push back once: "Phone calls work for warm contacts. For cold ICP, LinkedIn DM or email is the default. Override anyway?" If yes, draft accordingly.

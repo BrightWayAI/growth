@@ -113,7 +113,7 @@ Runtime-detect, do not ask:
 - `daily-brief`: `<config-root>/plugins/daily-brief.user-context.md` exists
 - `voice`: `<config-root>/plugins/voice.user-context.md` exists
 
-Mark each as installed/not. Used to decide whether to delegate to subagents like `pipeline-analyst`. (`contact-researcher` is bundled with this plugin as of 2026-09-15 — no longer a companion-detection case.)
+Mark each as installed/not. Used to decide whether to delegate to subagents like `pipeline-analyst`. (`relationships-director`, mode: research, is bundled with this plugin as of 2026-09-15 — no longer a companion-detection case.)
 
 ---
 

@@ -30,11 +30,11 @@ Gather from the local files:
 - **From the SIG entry in `<config-root>/relationships/pipeline.md`:** signal type, captured date, contact details, signal context, drafting angle, notes, meeting time/date.
 - **From `sent-log.md`:** every touch sent + every reply received. Read the verbatim messages — *what* they replied with tells you their language and what they care about.
 
-## Step 3: Pull contact + company context — delegate to contact-researcher
+## Step 3: Pull contact + company context — delegate to relationships-director (mode: research)
 
-Instead of doing CRM + Gmail + web pulls inline (which bloats this conversation's context), delegate the dossier to the `contact-researcher` subagent.
+Instead of doing CRM + Gmail + web pulls inline (which bloats this conversation's context), delegate the dossier to the `relationships-director` subagent (`mode: research`).
 
-**Use the Task tool with `subagent_type="contact-researcher"`.** Pass:
+**Use the Task tool with `subagent_type="relationships-director"` and `mode: "research"`.** Pass:
 
 - **Contact name** + email (from the SIG entry)
 - **Company name** (from the SIG entry)
@@ -53,7 +53,7 @@ The agent returns:
 
 **Read the dossier's `Confidence & Gaps` section first.** If `Confidence: Low` AND key sections (Contact Snapshot, Relationship History) are sparse, pause and ask the user:
 
-> "Heads up — `contact-researcher` came back Low confidence on this contact: [specific gap]. The brief is going to be thin without it. Want to share what you know — relationship history, why they're considering this, anything not in the CRM — so I can build a stronger brief? Or 'proceed' and I'll work with what we have."
+> "Heads up — `relationships-director` came back Low confidence on this contact: [specific gap]. The brief is going to be thin without it. Want to share what you know — relationship history, why they're considering this, anything not in the CRM — so I can build a stronger brief? Or 'proceed' and I'll work with what we have."
 
 If the user provides context, incorporate it into Step 4's structure. If they say "proceed," do so and flag in the brief's bottom that confidence was low and verify before the call.
 
@@ -63,9 +63,9 @@ Don't paste the dossier into the brief verbatim. Step 4 has its own structure (W
 
 The dossier and the local SIG context (signal recap, sent-log, the verbatim reply) are the two main inputs. If they conflict (e.g., dossier says they're VP Marketing but the signal captured them as Director), trust the dossier — it's pulled from current data — and note the discrepancy in the brief.
 
-### If contact-researcher is not available
+### If relationships-director is not available
 
-If the agent isn't registered, fall back to inline pulls (CRM lookup, Gmail search, 3-5 web searches). Tell the user once: "Heads up — `contact-researcher` isn't available. Briefs are slower and noisier without it. contact-researcher is bundled with this plugin — check it's registered." Then proceed inline.
+If the agent isn't registered, fall back to inline pulls (CRM lookup, Gmail search, 3-5 web searches). Tell the user once: "Heads up — `relationships-director` isn't available. Briefs are slower and noisier without it. relationships-director is bundled with this plugin — check it's registered." Then proceed inline.
 
 ## Step 4: Synthesize the brief
 

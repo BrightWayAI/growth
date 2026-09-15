@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.3.2] — relationship-ranker + contact-researcher merged into relationships-director (2026-09-15)
+
+Nucleus Operating Model Refactor Phase 3 step 3.6.
+
+### Changed
+- New `agents/relationships-director.md` replaces `relationship-ranker` and
+  `contact-researcher`, mode-dispatched (`mode: rank` / `mode: research`).
+  Both procedures are preserved verbatim under their mode — this is a
+  packaging change, not a behavior change. Callers (`/pull-signals`,
+  `/pre-call-brief`, `/draft-touchpoint`, `/relationships`,
+  `/setup-relationships`) updated to pass `subagent_type="relationships-director"`
+  with an explicit `mode`.
+- `.codex/agents/relationship-ranker.toml` + `.codex/agents/contact-researcher.toml`
+  replaced by `.codex/agents/relationships-director.toml`.
+
+### Removed
+- `agents/relationship-ranker.md`, `agents/contact-researcher.md` — content
+  fully preserved in `relationships-director.md`.
+
 ## [0.3.1] — nucleus-router routing docs updated (2026-09-15)
 
 ### Changed

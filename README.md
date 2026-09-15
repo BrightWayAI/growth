@@ -33,7 +33,7 @@ Each surfaced contact gets a channel recommendation (based on relationship class
 
 ## Companion plugins
 
-Signal sourcing (Apollo/ICP/7-signal taxonomy), the `contact-researcher` deep-dive agent, and referral-network cooling rules are bundled directly in this plugin as of 2026-09-15 (absorbed from the retired lead-engine and referral-engine plugins) — no separate install needed for those.
+Signal sourcing (Apollo/ICP/7-signal taxonomy), the `relationships-director` deep-dive mode (`mode: research`), and referral-network cooling rules are bundled directly in this plugin as of 2026-09-15 (absorbed from the retired lead-engine and referral-engine plugins) — no separate install needed for those.
 
 Works standalone, but smarter with:
 

@@ -71,9 +71,9 @@ For each candidate signal:
 2. **Disqualify** — apply the disqualifier rules from `user-context.md`. Drop anything that hits a disqualifier.
 3. **Score** — assign High / Medium / Low using the rubric in `seven-signals.md` and the user's signal-priority weighting from `user-context.md`. A signal type the user marked "high priority" should bias scoring up.
 
-## Step 3.5: (Optional) Enrich the top 10 via contact-researcher
+## Step 3.5: (Optional) Enrich the top 10 via relationships-director (mode: research)
 
-Apollo signals are net-new and often have thin context — title, company, signal type, but not "what does this person actually post about" or "did the user already cross paths with them." For the top 10 by score, optionally enrich each via the `contact-researcher` subagent.
+Apollo signals are net-new and often have thin context — title, company, signal type, but not "what does this person actually post about" or "did the user already cross paths with them." For the top 10 by score, optionally enrich each via the `relationships-director` subagent (`mode: research`).
 
 **This step is opt-in.** It costs more tokens and time. Skip if:
 - The user passed `--no-enrich`.
@@ -86,7 +86,7 @@ Apollo signals are net-new and often have thin context — title, company, signa
 
 To enrich, for each of the top 10 signals (cap at 10 — don't go deeper):
 
-**Use the Task tool with `subagent_type="contact-researcher"`.** Pass:
+**Use the Task tool with `subagent_type="relationships-director"` and `mode: "research"`.** Pass:
 - **Contact name** + email (from Apollo)
 - **Company name** (from Apollo)
 - **Purpose:** `outreach`
@@ -97,7 +97,7 @@ For each returned dossier, augment the SIG entry's `**Signal context:**` and `**
 - **Drafting angle:** sharpen using the dossier's Three Talking Points. Pick the strongest seed and use it as the angle.
 - **Prior history:** if the dossier shows ANY prior email or meeting touch, replace the default `[Skip]` with a one-line summary so future commands have the context.
 
-If `contact-researcher` isn't available, skip enrichment silently and proceed to Step 4. Tell the user once at the end of Step 5: "Heads up — enrichment was skipped because `contact-researcher` isn't installed. contact-researcher is bundled with this plugin — check it's registered."
+If `relationships-director` isnt available, skip enrichment silently and proceed to Step 4. Tell the user once at the end of Step 5: "Heads up — enrichment was skipped because relationships-director isnt installed. relationships-director is bundled with this plugin — check its registered."
 
 ## Step 4: Append to pipeline
 
