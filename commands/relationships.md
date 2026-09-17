@@ -190,7 +190,7 @@ Before applying hard filters, **read persistent snoozes** from `<config-root>/re
 
 Drop any candidate whose `slug` matches an entry where `until_date >= today`. Entries with `until_date < today` are auto-expired (still in the file for audit; could be cleaned on next run).
 
-If the file is missing, treat as empty — no snoozes active. Don't create it here; it's written by `/relationships-action` when the user snoozes a card.
+If the file is missing, treat as empty — no snoozes active. Don't create it here; it's written by `/relationships-action` when the user snoozes a card, and (as of briefing v0.7.0) also mirrored here by cortex `/listen` Step 1.5h when a Today's Brief outreach skip resolves to a known person slug. This file stays the single source `/relationships` reads for snoozes — the brief's own snooze ledger (`<config-root>/briefs/.snooze-ledger.json`) is a separate, brief-item-keyed file that `/brief` reads instead; `/listen` is the only thing that keeps the two in sync.
 
 Then apply hard filters:
 

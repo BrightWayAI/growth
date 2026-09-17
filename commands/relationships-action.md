@@ -165,6 +165,8 @@ Three writes:
 2. Resolve `snooze_until` if it's relative (e.g., `+7d` → today + 7 days). Default if not specified: 7 days.
 3. No cortex write — snooze is a UI-state concept, not a relationship event.
 
+**Shared ownership note (briefing v0.7.0+):** Today's Brief's outreach queue also snoozes contacts, but through a *different* file — `<config-root>/briefs/.snooze-ledger.json`, keyed by brief item id rather than person slug, because it also has to snooze plain tasks that have no person slug at all. `snoozes.json` stays the single source `/relationships` Step 3 reads (unchanged — this command still writes it directly, as above). When a brief-outreach skip resolves to a known person slug, cortex `/listen` Step 1.5h is the one place that mirrors that snooze into this file too, so `/relationships` sees it without `/relationships` or this command needing to know the brief exists. Don't duplicate that sync logic here.
+
 ---
 
 ## Step 5 — Confirmation output
