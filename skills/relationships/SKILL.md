@@ -15,6 +15,8 @@ the workflow, safety gates, and output contract in this skill remain canonical.
 
 # Skill — relationships daily brief
 
+Read `../../commands/relationships.md` completely before executing the routed workflow. Its snooze-ledger rules are canonical, including cortex `/listen`'s mirror from brief outreach state into `relationships/snoozes.json`.
+
 This skill activates on phrases like:
 
 - "who should I reach out to today"

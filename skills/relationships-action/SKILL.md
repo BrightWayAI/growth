@@ -16,6 +16,8 @@ the workflow, safety gates, and output contract in this skill remain canonical.
 
 # Skill — relationships action
 
+Read `../../commands/relationships-action.md` completely before executing the routed workflow. Its snooze ownership rule is canonical: this workflow writes `relationships/snoozes.json`; cortex `/listen` alone mirrors qualifying Today's Brief outreach snoozes into that same file.
+
 This skill activates on phrases like:
 
 - "I sent that to [name]" / "sent the [name] one"

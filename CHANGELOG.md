@@ -4,6 +4,7 @@
 
 ### Changed
 - `commands/relationships.md` Step 3 and `commands/relationships-action.md` `action: snoozed` now document the shared-ownership rule with briefing v0.7.0's outreach-skip flow: `relationships/snoozes.json` stays the single source `/relationships` reads (unchanged write path here), while the brief's own item-keyed ledger (`briefs/.snooze-ledger.json`) is a separate file cortex `/listen` Step 1.5h keeps in sync with this one. No schema or behavior change in this plugin.
+- The Codex/OpenAI skill entrypoints now load those canonical command files explicitly, so the shared snooze-ownership rule is preserved outside Claude hosts.
 
 ## [0.6.1] — OpenAI host adapter (2026-09-14)
 
