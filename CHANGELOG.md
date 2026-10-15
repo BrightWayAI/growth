@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.6.3] — Plugin-directory pre-submission fix (2026-10-15)
+
+### Fixed
+- Removed the unrecognized `platforms` field from `.claude-plugin/plugin.json` (Claude Code ignores it and flags it as an unknown field at validation).
+- Added the one-step `/plugin marketplace add` + `/plugin install growth@nucleus` install block to `README.md` (previously undocumented).
+
 ## [0.6.2] — brief snooze-ledger sync documented (2026-09-17)
 
 ### Changed

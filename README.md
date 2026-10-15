@@ -10,6 +10,13 @@ Each bucket gives you **3 options**. Each option ships with a **recommended chan
 
 > Designed for operators who run a real life alongside their pipeline. The brief adapts to "I have 5 minutes" days and "I have an hour" days. No guilt-tripping about overdue contacts — it surfaces the highest-leverage few and lets the rest stay quiet.
 
+## Install
+
+```
+/plugin marketplace add BrightWayAI/nucleus
+/plugin install growth@nucleus
+```
+
 ## What you get
 
 - `/setup-relationships` — short interview that captures your ICP, tier definitions, voices (you can have more than one), time-budget defaults, and which integrations you have running. Writes to `<config-root>/plugins/growth.user-context.md`.
