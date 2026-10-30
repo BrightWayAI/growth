@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.6.5] — Cloud config-root portability (2026-10-30)
+
+### Fixed
+- Align OpenAI root resolution with Cortex, including materialized cloud roots and unreachable-root checks.
+- Specify cloud bootstrap/sync, private-repo boundaries, MCP-only degradation, and per-schedule verification.
+
 ## [0.6.4] — Config-root guard (2026-10-30)
 
 ### Changed
