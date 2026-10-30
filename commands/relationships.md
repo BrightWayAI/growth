@@ -8,6 +8,10 @@ The daily relationship cockpit. Run in the morning (or anytime) to see who matte
 
 ---
 
+## Step G — Config-root guard (run first)
+
+Run cortex's `python3 scripts/cortex_cli.py root-status`. If it exits non-zero, **stop** and show its sentence verbatim; write nothing anywhere else and do not ask for folder access more than once per session. If cortex is not installed, require that the resolved config root is an existing directory containing `memory/`; otherwise stop and point to `/start-nucleus` (in a cloud session: "Your Nucleus files are on your Mac and this chat can't see them yet. In the Claude desktop app, use + → Add folder and pick ~/cortex-root, then send any message.").
+
 ## Brief ID
 
 Generate a UUID v4 at the start of every run. Set `brief_id` to this value. Included in `today.json` and in every event written to `events.jsonl` so the structured event stream can be correlated back to the specific brief that produced it. Useful for analytics, debugging, and any future UI showing "your last brief."

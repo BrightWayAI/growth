@@ -21,6 +21,10 @@ Not for:
 
 ---
 
+## Step G — Config-root guard (run first)
+
+Run cortex's `python3 scripts/cortex_cli.py root-status`. If it exits non-zero, **stop** and show its sentence verbatim; write nothing anywhere else and do not ask for folder access more than once per session. If cortex is not installed, require that the resolved config root is an existing directory containing `memory/`; otherwise stop and point to `/start-nucleus` (in a cloud session: "Your Nucleus files are on your Mac and this chat can't see them yet. In the Claude desktop app, use + → Add folder and pick ~/cortex-root, then send any message.").
+
 ## Step 0 — Preflight
 
 Read `<config-root>/plugins/growth.user-context.md`. If missing → route to `/setup-relationships` and stop.

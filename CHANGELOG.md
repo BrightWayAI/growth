@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.6.4] — Config-root guard (2026-10-30)
+
+### Changed
+- `/relationships`, `/touchpoint` start with a config-root guard: if the root is unreachable (for example a cloud session with no folder attached) they stop with the plain-English fix instead of writing a partial result elsewhere. Unreachable config root is now detected and explained at every entry point (cloud sessions especially).
+
 ## [0.6.3] — Plugin-directory pre-submission fix (2026-10-15)
 
 ### Fixed
