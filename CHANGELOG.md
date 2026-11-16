@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.6.6] — Agent tool limits (2026-11-16)
+
+### Changed
+- `pipeline-analyst` and `pipeline-forecast` withhold `Write`, `Edit`, `NotebookEdit`, `Agent`, and the common CRM/email/calendar write tools. `relationships-director` withholds `NotebookEdit`, `Agent`, and the connector send/write tools; it keeps `Write`/`Edit` because `mode: research` persists a person page. Connector reads are still inherited.
+
 ## [0.6.5] — Cloud config-root portability (2026-10-30)
 
 ### Fixed
