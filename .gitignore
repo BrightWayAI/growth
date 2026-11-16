@@ -4,3 +4,6 @@ references/user-context.md
 
 # claude plugin eval results (Nucleus Operating Model Refactor Phase 4 step 4.2)
 evals/results/
+__pycache__/
+*.pyc
+evals/results/
