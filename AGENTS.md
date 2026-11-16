@@ -17,3 +17,7 @@ Read-only Codex role bindings live in `.codex/agents/`. If role delegation is un
 
 Never fabricate connector data. Keep drafts as drafts, and confirm any external write,
 send, schedule registration, or destructive action at the point of action.
+
+## Tests
+
+`python3 -m unittest discover -s tests` covers `scripts/nudge_check.py`. Run it before changing that script. The script is pure: JSON in, JSON out, no file writes.
