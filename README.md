@@ -75,3 +75,7 @@ Import the full catalog from
 [`BrightWayAI/nucleus`](https://github.com/BrightWayAI/nucleus); Nucleus is the master
 marketplace, while each plugin remains independently installable.
 <!-- OPENAI-SUPPORT:END -->
+
+## Tests
+
+`python3 -m unittest discover -s tests` covers `scripts/nudge_check.py`, the date math behind the daily nudges check. The script is pure: JSON in, JSON out, no file writes.
