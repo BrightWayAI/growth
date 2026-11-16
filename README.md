@@ -76,6 +76,10 @@ Import the full catalog from
 marketplace, while each plugin remains independently installable.
 <!-- OPENAI-SUPPORT:END -->
 
+## Nudges (0.7.0+)
+
+`/nudges` is a daily check for things that went quiet: an open deal with no activity for 15 days, an email to a client or prospect with no reply after 5 business days, and a follow-up you said you would send and have not. Each gets a drafted check-in, staged for review in `/morning`. It never sends and never changes a deal. Thresholds live in your own `<config-root>/plugins/growth/triggers.md`; `references/triggers.template.md` is the starter.
+
 ## Tests
 
 `python3 -m unittest discover -s tests` covers `scripts/nudge_check.py`, the date math behind the daily nudges check. The script is pure: JSON in, JSON out, no file writes.

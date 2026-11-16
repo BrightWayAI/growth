@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.7.0] — /nudges (2026-11-16)
+
+### Added
+- `/nudges`: a daily check for things that went quiet. It finds open deals with no activity for 15 days, emails to clients or prospects with no reply after 5 business days, and follow-ups you owe that are past their date or 7 days old with no date. It drafts a check-in for each and stages them at `memory/staged/nudges/<date>.md` for review in `/morning`. `scripts/nudge_check.py` decides what is flagged and prevents repeats.
+- `references/triggers.template.md`: starter for the user-owned thresholds file, `<config-root>/plugins/growth/triggers.md`.
+- Skill `nudges` ("what's gone quiet?") and eval `nudges-daily-check`.
+
+### Guarantees
+- It never sends, never changes a deal, and never edits a memory node. It never suggests closing a deal.
+- A missing connector skips one check, not the run.
+- Deal names and drafts stay in `memory/staged/`, which syncs through the private repository only.
+
+### Not yet
+- No schedule is registered, and `/morning` does not show the nudges yet. Both follow.
+
 ## [0.6.7] — Nudge check script (2026-11-16)
 
 ### Added
