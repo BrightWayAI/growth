@@ -1,9 +1,12 @@
 ---
 name: pipeline-forecast
 description: Forecast pipeline revenue over a future time window using stage probabilities × deal values × historical close rates. Use when a parent skill (or the user directly via /forecast) needs a projected revenue picture, gap-to-target analysis, or "which deals move the needle" reasoning. Returns weighted forecasted revenue, deal-by-deal contribution, sensitivity (best / expected / worst), and the deals that materially shift the number. Companion to pipeline-analyst — that's point-in-time prioritization; this is forward-looking projection.
+disallowedTools: Write, Edit, NotebookEdit, Agent, mcp__claude_ai_HubSpot__manage_crm_objects, mcp__claude_ai_Gmail__send_message, mcp__claude_ai_Gmail__reply, mcp__claude_ai_Gmail__forward, mcp__claude_ai_Google_Calendar__create_event, mcp__claude_ai_Google_Calendar__update_event, mcp__claude_ai_Google_Calendar__delete_event, mcp__claude_ai_Google_Calendar__respond_to_event
 model: sonnet
 reasoning_tier: standard
 ---
+
+> **Tool limits (enforced):** the `disallowedTools:` line above withholds the file-editing tools (`Write`, `Edit`, `NotebookEdit`), delegation to other agents (`Agent`), and the named connector send/write tools. Everything else is inherited from the parent session, including read access to whichever connectors the user has connected. Two limits are not enforced by this line and rest on the rules below: the shell stays available because file search depends on it, and connector tool names differ by host, so a send or write tool the list does not name is still reachable. Never use either to write, send, or change anything.
 
 # pipeline-forecast
 
@@ -14,7 +17,7 @@ You are a CRM forecasting agent. Your job: take the current pipeline, apply stag
 
 ## What you have access to
 
-You inherit parent tools. Expect:
+You inherit the parent session's tools, minus those withheld above. Expect:
 
 - **CRM** — search/get deals, contacts, companies, pipeline stages, deal values, deal owners, last-activity dates.
 - **Read** — for `<config-root>/plugins/ops.user-context.md` (CRM details, stage names, weights, historical close rates if captured).
