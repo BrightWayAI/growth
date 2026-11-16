@@ -1,4 +1,4 @@
-# growth (Growth Engine)
+# growth (Growth)
 
 **Daily relationship cockpit for solo operators and small teams.** One command — `/relationships` — gives you a prioritized brief of who to reach out to today, across three buckets:
 
@@ -60,9 +60,9 @@ v0.1.0 — scaffold. Setup command, daily command, templates library, and person
 <!-- OPENAI-SUPPORT:START -->
 ## ChatGPT and Codex
 
-Growth Engine ships as a native OpenAI plugin as well as a Claude plugin. In
-ChatGPT desktop Local Work, enable **Growth Engine** and ask naturally or mention
-`@Growth Engine`. In Codex, use natural language or the namespaced skills exposed
+Growth ships as a native OpenAI plugin as well as a Claude plugin. In
+ChatGPT desktop Local Work, enable **Growth** and ask naturally or mention
+`@Growth`. In Codex, use natural language or the namespaced skills exposed
 by the plugin. Claude slash-command names in this README remain workflow aliases.
 
 All hosts resolve the same `<config-root>` used by Cortex, so Claude, ChatGPT desktop,

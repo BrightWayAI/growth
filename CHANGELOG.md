@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.7.1] — Plain plugin names (2026-11-16)
+
+### Changed
+- Plugins are named for the work they cover: Ops, Clients, Comms, Growth, Briefing, Alignment (were Chief of Staff, Client Success, Comms Desk, Growth Engine, Today's Brief, Team Alignment). In ChatGPT the mention changes to match, for example `@Ops`. Plugin IDs, commands, and behavior are unchanged.
+- Description rewritten to say what the plugin covers. `relationships-director` description states plainly that `mode: research` saves a person page.
+
 ## [0.7.0] — /nudges (2026-11-16)
 
 ### Added
