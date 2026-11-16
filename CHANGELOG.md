@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.6.7] — Nudge check script (2026-11-16)
+
+### Added
+- `scripts/nudge_check.py`: the date math and "do not flag twice" bookkeeping for the daily nudges check (Phase 2). Given open deals, sent threads with no reply, commitments owed, the ledger, and today's date, it returns which items cross their threshold: a deal quiet for 15 days, no reply after 5 business days, something owed that is past its date or 7 days old with no date. It also parses the user's thresholds table. It reads and writes JSON only and touches no files.
+- 28 unit tests (`python3 -m unittest discover -s tests`), the plugin's first.
+
+### Not changed
+- Nothing calls the script yet. The `/nudges` command comes in the next release.
+
 ## [0.6.6] — Agent tool limits (2026-11-16)
 
 ### Changed
