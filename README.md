@@ -19,8 +19,34 @@ Each bucket gives you **3 options**. Each option ships with a **recommended chan
 
 ## What you get
 
-- `/setup-relationships` — short interview that captures your ICP, tier definitions, voices (you can have more than one), time-budget defaults, and which integrations you have running. Writes to `<config-root>/plugins/growth.user-context.md`.
-- `/relationships` — the daily brief. Reads your cortex person pages, identity, voice, CRM, calendar, and inbox; ranks; drafts; presents.
+### Commands
+
+| Command | What it does |
+|---|---|
+| `/setup-relationships` | Short interview: ICP, tier definitions, voices (you can have more than one), time-budget defaults, signal and referral preferences. Writes to `<config-root>/plugins/growth.user-context.md`. |
+| `/relationships` | The daily brief. Reads your cortex person pages, identity, voice, CRM, calendar and inbox; ranks; drafts; presents. |
+| `/relationships-action` | Records what you did with a brief option (copied, sent, skipped, snoozed) without re-running the brief. |
+| `/draft-touchpoint` | One message to one named contact, on demand, with the right channel and template. |
+| `/touchpoint` | Logs a catch-up from plain language ("had coffee with Sam, he's introducing me to two people") on the person page. Also records signal outcomes (`/touchpoint SIG-12 sent`). |
+| `/network-rebalance` | Walks your person pages in batches and proposes tier, intent and bucket tags for each. Run once after setup, then quarterly. |
+| `/nudges` | Daily check for things that went quiet (see Nudges below). |
+| `/pull-signals` | Pulls job changes, funding and hiring signals for your ICP from Apollo into the signal pipeline. |
+| `/capture-signal` | Adds a buying signal you spotted yourself, classified and scored against your ICP. |
+| `/warm-signal` | Pre-DM warming: a comment to post, two posts to like, and the DM queued for a day later. |
+| `/connect-signal` | Drafts a short LinkedIn connection-request note for a signal contact you aren't connected to yet. |
+| `/draft-signal` | Drafts the three-touch DM sequence for a captured signal, in your voice. |
+| `/pre-call-brief` | Once a meeting is booked: contact and company snapshot, signal recap, talking points, likely objections. |
+
+### Agents
+
+| Agent | What it does |
+|---|---|
+| `relationships-director` | `mode: rank` scores candidates for a brief bucket; `mode: research` builds a dossier on one contact or company. |
+| `pipeline-analyst` | Ranks the open CRM pipeline: the roughly ten contacts and deals that deserve attention this week, with reasons. |
+| `pipeline-forecast` | Projects revenue over a future window from stage probabilities, deal values and close rates, with best, expected and worst cases. |
+
+### Reference files
+
 - `references/templates/` — bundled defaults across **comment / dm / email / text / call / conference** categories. Variable-driven (`{{person.name}}`, `{{trigger.context}}`, `{{user.business}}`). Editable. Add your own.
 - `references/person-page-extensions.md` — additive YAML fields the plugin recognizes on cortex person pages (`tier`, `buckets`, `icp_fit`, `generosity_ledger`, `next_touch_target`). Untagged people fall back to sensible defaults.
 
@@ -55,7 +81,7 @@ Drafts only. Never sends. Reads your authorized connectors; writes only to your 
 
 ## Status
 
-v0.1.0 — scaffold. Setup command, daily command, templates library, and person-page extensions documented but stubbed. See `CHANGELOG.md` for what's in this release and `nucleus/docs/proposals/relationships-plugin.md` (in the nucleus repo) for the design spec.
+All commands above are implemented. See `CHANGELOG.md` for the version history.
 
 <!-- OPENAI-SUPPORT:START -->
 ## ChatGPT and Codex
@@ -78,7 +104,7 @@ marketplace, while each plugin remains independently installable.
 
 ## Nudges (0.7.0+)
 
-`/nudges` is a daily check for things that went quiet: an open deal with no activity for 15 days, an email to a client or prospect with no reply after 5 business days, and a follow-up you said you would send and have not. Each gets a drafted check-in, staged for review in `/morning`. It never sends and never changes a deal. Thresholds live in your own `<config-root>/plugins/growth/triggers.md`; `references/triggers.template.md` is the starter.
+`/nudges` is a daily check for things that went quiet: an open deal with no activity for 15 days, an email to a client or prospect with no reply after 5 business days, and a follow-up you said you would send and have not. Each gets a drafted check-in, staged for review in `/morning` under "Needs a nudge". Schedule it with Ops's `/register-schedules` (the `daily-nudges` row). It never sends and never changes a deal. Thresholds live in your own `<config-root>/plugins/growth/triggers.md`; `references/triggers.template.md` is the starter.
 
 ## Tests
 
