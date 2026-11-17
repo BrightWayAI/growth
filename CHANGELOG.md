@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.7.2] — Eval fixture and a quality test (2026-11-16)
+
+### Added
+- `evals/_fixtures/seed-config-root.sh` (a copy of cortex's fictional config folder) and `evals/README.md`. `relationships-natural-language` now runs against it; before, the run had no config folder and the command correctly stopped.
+- Output-quality eval `relationships-quality`: real contacts from the fixture, a specific reason for each, and a drafted message that follows the voice rules.
+
 ## [0.7.1] — Plain plugin names (2026-11-16)
 
 ### Changed
