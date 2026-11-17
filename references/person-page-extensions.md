@@ -70,7 +70,7 @@ Specifies the **dynamic of how you engage** with this person. Distinct from tier
 
 **Constraint:** not every (tier × intent) combination is valid. Strategic + passive_visibility is a contradiction. The daily brief and `/network-rebalance` validate combinations and prompt the user to reconcile if invalid.
 
-**Dynamic:** intent shifts as the relationship evolves. Lauren Bernstein could move `awaiting_reply` → `drive_active` if a real conversation develops, or back to `keep_warm` if she goes quiet. Re-evaluate intent at every `/network-rebalance`; the daily brief should also propose shifts when patterns indicate.
+**Dynamic:** intent shifts as the relationship evolves. A contact could move `awaiting_reply` → `drive_active` if a real conversation develops, or back to `keep_warm` if they go quiet. Re-evaluate intent at every `/network-rebalance`; the daily brief should also propose shifts when patterns indicate.
 
 ### `cadence_days_override` (optional, default null)
 

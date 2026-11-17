@@ -1,7 +1,7 @@
 {
   "name": "growth",
   "description": "Growth. Relationships and pipeline. /relationships builds the daily brief of who to reach out to (new business, relationship building, network expansion) with a drafted message for each; /draft-touchpoint drafts one message to one person; /pre-call-brief prepares you for a booked meeting; /pull-signals, /capture-signal, /warm-signal, /connect-signal and /draft-signal work buying signals; /touchpoint logs an interaction; /nudges is the daily check for deals and follow-ups that went quiet; pipeline ranking and revenue forecasting run from the CRM. Drafts only: it never sends and never changes a deal. Configure with /setup-relationships.",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "author": {
     "name": "BrightWay AI",
     "url": "https://brightwayai.com"

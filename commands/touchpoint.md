@@ -1,5 +1,5 @@
 ---
-description: Lightweight ad-hoc relationship logging from natural language. "I had a great catch-up with Sang, he's connecting me to two folks at NationSwell." Updates the person page's Recent Interactions log, sets Last meaningful contact, optionally appends a generosity_ledger entry, optionally proposes intent/tier shift if the touch signals a change. Drafts only — never sends. Lower friction than /relationships-action for the "I just did this and want to capture it" flow. Also handles signal-pipeline actions (`/touchpoint SIG-[id] sent|reply|booked|dead`), absorbed from the retired lead-engine plugin's /lead-log, 2026-09-15.
+description: Lightweight ad-hoc relationship logging from natural language. "I had a great catch-up with Sam, he's connecting me to two folks at Fabrikam." Updates the person page's Recent Interactions log, sets Last meaningful contact, optionally appends a generosity_ledger entry, optionally proposes intent/tier shift if the touch signals a change. Drafts only — never sends. Lower friction than /relationships-action for the "I just did this and want to capture it" flow. Also handles signal-pipeline actions (`/touchpoint SIG-[id] sent|reply|booked|dead`), absorbed from the retired lead-engine plugin's /lead-log, 2026-09-15.
 ---
 
 # /touchpoint
@@ -8,10 +8,10 @@ The fast capture command for "I just did something with this person and want to 
 
 ## When to use
 
-- "I had a great catch-up with Sang, he's connecting me to two folks at NationSwell"
+- "I had a great catch-up with Sam, he's connecting me to two folks at Fabrikam"
 - "Just texted my brother — he's coming for dinner Sunday"
-- "Had a call with Charity, she asked for the PRB feedback by EOD Wednesday"
-- "Quick LinkedIn comment on Rob's latest post"
+- "Had a call with Priya, she asked for the proposal feedback by EOD Wednesday"
+- "Quick LinkedIn comment on Lee's latest post"
 
 Not for:
 - Bulk relationship tagging (use `/network-rebalance`)
@@ -38,9 +38,9 @@ The user invokes via:
 ### A. Natural-language utterance (skill-triggered)
 
 ```
-"I had a great catch-up with Sang"
+"I had a great catch-up with Sam"
 "Texted my brother about dinner Sunday"
-"Just commented on Charity's LinkedIn post"
+"Just commented on Priya's LinkedIn post"
 ```
 
 Parse out:
@@ -174,7 +174,7 @@ Before writing, check whether this touchpoint signals a tier/intent shift. Cheap
    - `tier: strategic + intent: drive_active` + touchpoint is the goal closing (e.g., "deal signed") → propose shift to `client_delivery` or `keep_warm` per context.
    - `tier: inner` + touchpoint is light (1-min text) → no shift; expected behavior.
 3. **If a shift is suggested**, surface inline AFTER the write:
-   > "Touchpoint logged. Pattern note: Sang shifted from `awaiting_reply` to a real-conversation state. Promote intent → drive_active? (y / n / later)"
+   > "Touchpoint logged. Pattern note: Sam shifted from `awaiting_reply` to a real-conversation state. Promote intent → drive_active? (y / n / later)"
 
 Best-effort only. False positives are fine — the user can ignore. The point is to keep the schema fresh without forcing a `/network-rebalance` run.
 

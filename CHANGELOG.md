@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.7.4] — Remove real client and contact names (2026-11-17)
+
+Privacy fix. Examples, an eval prompt, a test fixture and older changelog
+entries still named real clients, prospects and contacts. All replaced with
+fictional names. No functional change.
+
+### Fixed
+- Real client, prospect and contact names removed from command examples,
+  reference templates, evals, tests and earlier changelog entries.
+
 ## [0.7.3] — Eval fixture sync (2026-11-16)
 
 ### Changed
@@ -214,10 +224,10 @@ peers before this — this makes the dependency native instead of optional).
   plugin-name and config-file references updated from `writing-style` to
   `voice` (Nucleus Operating Model Refactor Phase 3 step 3.4).
 
-## [0.2.7] — Follow-up privacy fix: MedBridge, sang-lee (2026-09-15)
+## [0.2.7] — Follow-up privacy fix (2026-09-15)
 
 Caught in a second sweep after v0.2.5 shipped — a real prospect company name
-("MedBridge") and a real contact slug ("sang-lee") remained in
+and a real contact slug remained in
 `references/today-json-schema.md`, `references/person-page-extensions.md`,
 `commands/draft-touchpoint.md`, and `references/ui-integration.md`.
 Genericized. No functional change.
@@ -238,17 +248,14 @@ functional/schema change.
 
 ### Fixed
 - `references/today-json-schema.md` — schema example no longer hardcodes
-  "Zach Wagner" / "BrightWay AI" / the real "Studio K-12 anchors" quarter
-  target.
+  the owner's name, company, or a real quarter target.
 - `references/scoring.md` — same quarter-target example genericized.
 - `references/person-page-extensions.md` — intent-type examples no longer
-  name real contacts (Sang Lee, Rob Buelow, Jennifer Ives, etc.) or a real
-  contract figure ("$7K engagement, 35–40 hrs").
+  name real contacts or a real contract figure.
 - `commands/touchpoint.md`, `commands/draft-touchpoint.md`,
   `commands/network-rebalance.md`, `commands/relationships-action.md`,
   `skills/relationships-action/SKILL.md`, `skills/draft-touchpoint/SKILL.md`
-  — example output/prompts no longer name real contacts or clients (Sang Lee,
-  Derek/Holt, MedBridge).
+  — example output/prompts no longer name real contacts or clients.
 
 ## [0.2.4] — OpenAI host adapter (2026-09-14)
 
@@ -361,7 +368,7 @@ Validation overrides are logged to `<config-root>/memory/staged/skip-logs/schema
 
 ### Added — `/touchpoint` command + skill
 
-Ad-hoc relationship logging from natural language. "I had a great catch-up with Sang, he's connecting me to two folks at NationSwell." Lighter friction than `/relationships-action` for "I just did this and want to capture it" moments that don't come from a brief card.
+Ad-hoc relationship logging from natural language. "I had a great catch-up with Sam, he's connecting me to two folks at Fabrikam." Lighter friction than `/relationships-action` for "I just did this and want to capture it" moments that don't come from a brief card.
 
 - **`commands/touchpoint.md`** — 7-step flow: parse touchpoint → detect signal-of-change → write Recent Interactions → optional generosity_ledger entry → append events.jsonl → log → confirm + optional shift prompt.
 - **`skills/touchpoint/SKILL.md`** — natural-language entrypoint with phrase patterns and routing for nucleus-router.
@@ -395,17 +402,17 @@ Major schema refinement informed by the inaugural `/network-rebalance` walk on 2
 The `intent` field encodes the **dynamic of engagement** as a dimension orthogonal to (but constrained by) `tier`. Tier captures cadence + drive level; intent captures the texture of HOW you engage.
 
 **Active-drive intents** (paired with inner / strategic tiers):
-- `client_delivery` — active client engagement (Tom, Charity, Kim patterns)
+- `client_delivery` — active client engagement
 - `drive_active` — actively driving a relationship goal
 - `door_opening` — connector role; staying useful + visible
-- `reciprocal` — mutual referral; match the energy (Jennifer Ives pattern)
-- `advising` — asymmetric help with explicit offer (Sang Lee pattern)
-- `content_share` — pure-give cadence; no quid pro quo (Rob Buelow post-Vector pattern)
+- `reciprocal` — mutual referral; match the energy
+- `advising` — asymmetric help with explicit offer
+- `content_share` — pure-give cadence; no quid pro quo
 
 **Passive intents** (paired with operational / dormant tiers):
-- `keep_warm` — quiet maintenance (Lauren Little, Caitlyn, Catherine pattern)
-- `passive_visibility` — network-bucket only; engage with content, never direct outreach (Jonathan Harms pattern)
-- `awaiting_reply` — transient state for just-sent outreach (Lauren Bernstein post-DM pattern)
+- `keep_warm` — quiet maintenance
+- `passive_visibility` — network-bucket only; engage with content, never direct outreach
+- `awaiting_reply` — transient state for just-sent outreach
 
 The brief validates (tier × intent) compatibility — invalid combinations (e.g., strategic + passive_visibility) surface in `/network-rebalance` for reconciliation.
 
