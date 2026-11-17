@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.7.5] — README refresh (2026-11-17)
+
+### Changed
+- README brought up to date: every command and agent listed, the outdated "scaffold" status removed, and how to schedule `/nudges`. Documentation only; no behavior change.
+
 ## [0.7.4] — Remove real client and contact names (2026-11-17)
 
 Privacy fix. Examples, an eval prompt, a test fixture and older changelog
