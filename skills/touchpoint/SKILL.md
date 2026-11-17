@@ -1,6 +1,6 @@
 ---
 name: touchpoint
-description: Natural-language entrypoint for ad-hoc relationship logging. Fires when the user describes a touchpoint they just had — "I had a great catch-up with Sang," "Just texted my brother," "Commented on Charity's LinkedIn post," "Had a call with [name]." Resolves the person from context, infers channel, drafts a Recent Interactions log entry, optionally proposes intent/tier shift. Drafts only — never sends, never modifies CRM.
+description: Natural-language entrypoint for ad-hoc relationship logging. Fires when the user describes a touchpoint they just had — "I had a great catch-up with Sam," "Just texted my brother," "Commented on Priya's LinkedIn post," "Had a call with [name]." Resolves the person from context, infers channel, drafts a Recent Interactions log entry, optionally proposes intent/tier shift. Drafts only — never sends, never modifies CRM.
 ---
 
 <!-- OPENAI-ADAPTER:START -->
@@ -40,8 +40,8 @@ Respect autonomy slider:
 
 | Phrase | Skill |
 |---|---|
-| "I had a catch-up with Sang" | `/touchpoint` (ad-hoc log) |
-| "Draft a message to Sang" | `/draft-touchpoint` (compose, don't send) |
+| "I had a catch-up with Sam" | `/touchpoint` (ad-hoc log) |
+| "Draft a message to Sam" | `/draft-touchpoint` (compose, don't send) |
 | "I sent that to Sarah" (during brief review) | `/relationships-action` (action on a brief card) |
 | "Who should I reach out to today" | `/relationships` (daily brief) |
 | "Rebalance my network" | `/network-rebalance` (bulk re-tag) |

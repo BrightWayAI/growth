@@ -158,7 +158,7 @@ The sync daemon picks up the file and invokes `/relationships-action --file=<pat
   "bucket": null,
   "person_slug": "jordan-diaz",
   "channel": "call",
-  "notes": "had a great catch-up; he's intro'ing me to two folks at NationSwell",
+  "notes": "had a great catch-up; he's intro'ing me to two folks at Fabrikam",
   "meta": {
     "direction": "out",
     "intent_at_time": "advising",
