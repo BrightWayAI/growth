@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.7.3] — Eval fixture sync (2026-11-16)
+
+### Changed
+- Eval fixture synced with cortex 4.40.0: the fictional transcript sits under `archive/<date>/transcripts/`. Tests only.
+
 ## [0.7.2] — Eval fixture and a quality test (2026-11-16)
 
 ### Added
